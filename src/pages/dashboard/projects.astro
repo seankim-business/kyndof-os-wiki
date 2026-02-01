@@ -1,0 +1,440 @@
+---
+import WikiLayout from '@layouts/WikiLayout.astro';
+
+// Sample project data - in production, this would be loaded from wiki/src/data/dashboard.json
+const projectsData = {
+  summary: {
+    totalProjects: 15,
+    activeProjects: 10,
+    completedProjects: 4,
+    atRiskProjects: 3,
+    resourceUtilization: 78,
+    avgVelocity: 72,
+  },
+  projects: [
+    {
+      id: 'proj-1',
+      name: 'Customer Portal Redesign',
+      status: 'on-track',
+      health: 85,
+      velocity: 78,
+      tasksCompleted: 45,
+      tasksTotal: 58,
+      blockers: 0,
+      teamSize: 5,
+    },
+    {
+      id: 'proj-2',
+      name: 'API Migration v3',
+      status: 'at-risk',
+      health: 45,
+      velocity: 52,
+      tasksCompleted: 23,
+      tasksTotal: 67,
+      blockers: 3,
+      teamSize: 4,
+    },
+    {
+      id: 'proj-3',
+      name: 'Mobile App MVP',
+      status: 'on-track',
+      health: 92,
+      velocity: 88,
+      tasksCompleted: 78,
+      tasksTotal: 85,
+      blockers: 0,
+      teamSize: 6,
+    },
+    {
+      id: 'proj-4',
+      name: 'Infrastructure Upgrade',
+      status: 'at-risk',
+      health: 38,
+      velocity: 45,
+      tasksCompleted: 12,
+      tasksTotal: 42,
+      blockers: 2,
+      teamSize: 3,
+    },
+    {
+      id: 'proj-5',
+      name: 'Analytics Dashboard',
+      status: 'on-track',
+      health: 68,
+      velocity: 65,
+      tasksCompleted: 34,
+      tasksTotal: 51,
+      blockers: 1,
+      teamSize: 4,
+    },
+  ],
+};
+
+const getHealthColor = (health: number) => {
+  if (health >= 80) return 'health-good';
+  if (health >= 60) return 'health-fair';
+  return 'health-poor';
+};
+
+const getHealthLabel = (health: number) => {
+  if (health >= 80) return 'Good';
+  if (health >= 60) return 'Fair';
+  return 'Poor';
+};
+
+const calculateProgress = (completed: number, total: number) => {
+  return Math.round((completed / total) * 100);
+};
+---
+
+<WikiLayout title="Projects Dashboard" description="Project health and velocity insights">
+  <header class="page-header">
+    <div class="header-content">
+      <h1>Projects Dashboard</h1>
+      <p class="page-description">Monitor project health, velocity, and blockers</p>
+    </div>
+    <a href="/dashboard" class="back-button">← Back to Dashboard</a>
+  </header>
+
+  <!-- Summary Stats -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <span class="summary-value">{projectsData.summary.activeProjects}</span>
+      <span class="summary-label">Active Projects</span>
+    </div>
+    <div class="summary-card">
+      <span class="summary-value">{projectsData.summary.avgVelocity}%</span>
+      <span class="summary-label">Avg Velocity</span>
+    </div>
+    <div class="summary-card">
+      <span class="summary-value">{projectsData.summary.resourceUtilization}%</span>
+      <span class="summary-label">Resource Util.</span>
+    </div>
+    <div class="summary-card critical">
+      <span class="summary-value">{projectsData.summary.atRiskProjects}</span>
+      <span class="summary-label">At Risk</span>
+    </div>
+  </div>
+
+  <!-- Projects List -->
+  <section class="projects-section">
+    <h2>Active Projects</h2>
+    <div class="projects-list">
+      {projectsData.projects.map((project) => {
+        const progress = calculateProgress(project.tasksCompleted, project.tasksTotal);
+
+        return (
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">{project.name}</h3>
+              <span class={`health-badge ${getHealthColor(project.health)}`}>
+                {getHealthLabel(project.health)} Health
+              </span>
+            </div>
+
+            <div class="project-stats">
+              <div class="stat-group">
+                <div class="stat-item">
+                  <span class="stat-label">Tasks</span>
+                  <span class="stat-value">{project.tasksCompleted}/{project.tasksTotal}</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Progress</span>
+                  <span class="stat-value">{progress}%</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Velocity</span>
+                  <span class="stat-value">{project.velocity}%</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Team Size</span>
+                  <span class="stat-value">{project.teamSize}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress-section">
+              <div class="progress-bar">
+                <div class="progress-fill" style={`width: ${progress}%`}></div>
+              </div>
+            </div>
+
+            {project.blockers > 0 && (
+              <div class="blockers-alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span>{project.blockers} blocker{project.blockers !== 1 ? 's' : ''} need attention</span>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Recommendations -->
+  <section class="recommendations-section">
+    <h2>Recommendations</h2>
+    <ul class="recommendations-list">
+      {projectsData.projects.filter(p => p.health < 60).map((project) => (
+        <li class="recommendation warning">
+          <strong>{project.name}:</strong> Low health score ({project.health}%).
+          Review velocity and address {project.blockers} blocker(s).
+        </li>
+      ))}
+      {projectsData.projects.filter(p => p.velocity < 60 && p.health >= 60).map((project) => (
+        <li class="recommendation info">
+          <strong>{project.name}:</strong> Velocity below target ({project.velocity}%).
+          Consider resource reallocation or scope adjustment.
+        </li>
+      ))}
+    </ul>
+  </section>
+</WikiLayout>
+
+<style>
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .header-content h1 {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .page-description {
+    color: var(--text-secondary);
+    font-size: var(--text-base);
+  }
+
+  .back-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    transition: all 0.2s ease;
+  }
+
+  .back-button:hover {
+    border-color: var(--accent-color);
+    background: var(--bg-hover);
+  }
+
+  /* Summary Grid */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .summary-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+  }
+
+  .summary-card.critical {
+    border-color: #dc2626;
+  }
+
+  .summary-value {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .summary-label {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: var(--spacing-xs);
+  }
+
+  /* Projects Section */
+  .projects-section h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .project-card {
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .project-name {
+    margin: 0;
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+  }
+
+  .health-badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .health-good {
+    background: rgba(22, 163, 74, 0.1);
+    color: #16a34a;
+  }
+
+  .health-fair {
+    background: rgba(234, 88, 12, 0.1);
+    color: #ea580c;
+  }
+
+  .health-poor {
+    background: rgba(220, 38, 38, 0.1);
+    color: #dc2626;
+  }
+
+  /* Project Stats */
+  .project-stats {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .stat-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .stat-label {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .stat-value {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* Progress Bar */
+  .progress-section {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #16a34a 0%, #4ade80 100%);
+    border-radius: var(--radius-sm);
+    transition: width 0.3s ease;
+  }
+
+  /* Blockers Alert */
+  .blockers-alert {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(220, 38, 38, 0.05);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    border-radius: var(--radius-md);
+    color: #dc2626;
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .blockers-alert svg {
+    flex-shrink: 0;
+  }
+
+  /* Recommendations */
+  .recommendations-section {
+    margin-top: var(--spacing-2xl);
+  }
+
+  .recommendations-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .recommendation {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border-left: 4px solid;
+  }
+
+  .recommendation.warning {
+    background: rgba(234, 88, 12, 0.05);
+    border-left-color: #ea580c;
+  }
+
+  .recommendation.info {
+    background: rgba(66, 99, 235, 0.05);
+    border-left-color: #4263eb;
+  }
+
+  .recommendation strong {
+    color: var(--text-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .page-header {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .summary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-header {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .stat-group {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

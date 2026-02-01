@@ -1,0 +1,68 @@
+---
+/**
+ * SyncStatus Component
+ * Shows the last sync timestamp from Notion
+ */
+
+interface Props {
+  lastSynced?: Date | string;
+}
+
+const { lastSynced } = Astro.props;
+
+function formatRelativeTime(date: Date): string {
+  const now = new Date();
+  // Ensure date is a Date object
+  const dateObj = date instanceof Date ? date : new Date(date);
+  const diffMs = now.getTime() - dateObj.getTime();
+  const diffMins = Math.floor(diffMs / 60000);
+  const diffHours = Math.floor(diffMs / 3600000);
+  const diffDays = Math.floor(diffMs / 86400000);
+
+  if (diffMins < 1) return 'just now';
+  if (diffMins < 60) return `${diffMins}m ago`;
+  if (diffHours < 24) return `${diffHours}h ago`;
+  if (diffDays < 7) return `${diffDays}d ago`;
+
+  return dateObj.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: dateObj.getFullYear() !== now.getFullYear() ? 'numeric' : undefined,
+  });
+}
+
+// Convert lastSynced to Date object if it's a string
+const lastSyncedDate = lastSynced
+  ? (lastSynced instanceof Date ? lastSynced : new Date(lastSynced))
+  : undefined;
+
+const displayTime = lastSyncedDate ? formatRelativeTime(lastSyncedDate) : 'never';
+const isoTime = lastSyncedDate?.toISOString();
+---
+
+<span class="sync-status" title={isoTime ? `Last synced: ${isoTime}` : 'Not synced'}>
+  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="23 4 23 10 17 10"></polyline>
+    <polyline points="1 20 1 14 7 14"></polyline>
+    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+  </svg>
+  <span class="sync-text">Synced {displayTime}</span>
+</span>
+
+<style>
+  .sync-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .sync-status svg {
+    flex-shrink: 0;
+  }
+
+  .sync-text {
+    white-space: nowrap;
+  }
+</style>

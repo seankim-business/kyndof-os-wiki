@@ -1,0 +1,34 @@
+{
+  "example-entity-id": [
+    {
+      "threadId": "thread_abc123",
+      "subject": "Q2 Planning: Feature Prioritization Meeting",
+      "participants": ["alice@company.com", "bob@company.com", "charlie@company.com", "diane@company.com"],
+      "date": "2025-01-29T09:15:00Z",
+      "snippet": "Thanks for the detailed breakdown. I agree that we should prioritize the authentication improvements first, followed by the performance optimizations.",
+      "url": "https://mail.google.com/mail/u/0/#inbox/thread_abc123",
+      "unread": true,
+      "hasAttachments": true
+    },
+    {
+      "threadId": "thread_def456",
+      "subject": "Design Review - Dashboard Mockups",
+      "participants": ["diane@company.com", "alice@company.com"],
+      "date": "2025-01-26T16:30:00Z",
+      "snippet": "I've updated the mockups based on your feedback. The new color scheme better aligns with our brand guidelines.",
+      "url": "https://mail.google.com/mail/u/0/#inbox/thread_def456",
+      "unread": false,
+      "hasAttachments": true
+    },
+    {
+      "threadId": "thread_ghi789",
+      "subject": "Re: Bug Report - Login Issues on Mobile",
+      "participants": ["support@company.com", "alice@company.com", "bob@company.com"],
+      "date": "2025-01-24T11:00:00Z",
+      "snippet": "We've identified the root cause and deployed a fix. The issue was related to session cookie handling on iOS Safari.",
+      "url": "https://mail.google.com/mail/u/0/#inbox/thread_ghi789",
+      "unread": false,
+      "hasAttachments": false
+    }
+  ]
+}

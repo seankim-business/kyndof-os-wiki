@@ -1,0 +1,574 @@
+---
+import WikiLayout from '@layouts/WikiLayout.astro';
+
+// Sample KPI data - in production, this would be loaded from wiki/src/data/dashboard.json
+const kpisData = {
+  summary: {
+    totalKPIs: 18,
+    onTrackKPIs: 12,
+    atRiskKPIs: 4,
+    missingKPIs: 2,
+    trendingUp: 9,
+    trendingDown: 3,
+  },
+  kpis: [
+    {
+      id: 'kpi-1',
+      name: 'Customer Satisfaction Score',
+      currentValue: 4.2,
+      targetValue: 4.5,
+      unit: '/5',
+      trend: 'up',
+      status: 'at-risk',
+      lastUpdated: '2024-01-28',
+      category: 'Customer',
+    },
+    {
+      id: 'kpi-2',
+      name: 'Monthly Active Users',
+      currentValue: 45200,
+      targetValue: 50000,
+      unit: '',
+      trend: 'up',
+      status: 'on-track',
+      lastUpdated: '2024-01-29',
+      category: 'Product',
+    },
+    {
+      id: 'kpi-3',
+      name: 'Bug Resolution Time',
+      currentValue: 3.5,
+      targetValue: 2.0,
+      unit: 'days',
+      trend: 'down',
+      status: 'at-risk',
+      lastUpdated: '2024-01-28',
+      category: 'Engineering',
+    },
+    {
+      id: 'kpi-4',
+      name: 'Revenue Growth',
+      currentValue: 15.2,
+      targetValue: 20.0,
+      unit: '%',
+      trend: 'up',
+      status: 'on-track',
+      lastUpdated: '2024-01-30',
+      category: 'Business',
+    },
+    {
+      id: 'kpi-5',
+      name: 'Code Coverage',
+      currentValue: 78,
+      targetValue: 80,
+      unit: '%',
+      trend: 'up',
+      status: 'on-track',
+      lastUpdated: '2024-01-29',
+      category: 'Engineering',
+    },
+    {
+      id: 'kpi-6',
+      name: 'Support Ticket Response Time',
+      currentValue: 2.8,
+      targetValue: 2.0,
+      unit: 'hours',
+      trend: 'stable',
+      status: 'at-risk',
+      lastUpdated: '2024-01-28',
+      category: 'Support',
+    },
+    {
+      id: 'kpi-7',
+      name: 'Employee Satisfaction',
+      currentValue: 8.5,
+      targetValue: 9.0,
+      unit: '/10',
+      trend: 'up',
+      status: 'on-track',
+      lastUpdated: '2024-01-25',
+      category: 'HR',
+    },
+    {
+      id: 'kpi-8',
+      name: 'API Uptime',
+      currentValue: 99.95,
+      targetValue: 99.9,
+      unit: '%',
+      trend: 'stable',
+      status: 'on-track',
+      lastUpdated: '2024-01-30',
+      category: 'Engineering',
+    },
+  ],
+};
+
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'on-track':
+      return 'status-on-track';
+    case 'at-risk':
+      return 'status-at-risk';
+    case 'missing':
+      return 'status-missing';
+    default:
+      return '';
+  }
+};
+
+const getTrendIcon = (trend: string) => {
+  switch (trend) {
+    case 'up':
+      return '↑';
+    case 'down':
+      return '↓';
+    case 'stable':
+      return '→';
+    default:
+      return '';
+  }
+};
+
+const getTrendColor = (trend: string) => {
+  switch (trend) {
+    case 'up':
+      return 'trend-up';
+    case 'down':
+      return 'trend-down';
+    case 'stable':
+      return 'trend-stable';
+    default:
+      return '';
+  }
+};
+
+const formatValue = (value: number, unit: string) => {
+  if (value >= 1000) {
+    return `${(value / 1000).toFixed(1)}k${unit}`;
+  }
+  return `${value}${unit}`;
+};
+
+const calculateProgress = (current: number, target: number) => {
+  return Math.min((current / target) * 100, 100);
+};
+
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+};
+
+// Group KPIs by category
+const categories = [...new Set(kpisData.kpis.map(kpi => kpi.category))];
+---
+
+<WikiLayout title="KPIs Dashboard" description="Key performance indicators and trends">
+  <header class="page-header">
+    <div class="header-content">
+      <h1>KPIs Dashboard</h1>
+      <p class="page-description">Track key performance indicators and identify trends</p>
+    </div>
+    <a href="/dashboard" class="back-button">← Back to Dashboard</a>
+  </header>
+
+  <!-- Summary Stats -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <span class="summary-value">{kpisData.summary.onTrackKPIs}/{kpisData.summary.totalKPIs}</span>
+      <span class="summary-label">On Track</span>
+    </div>
+    <div class="summary-card">
+      <span class="summary-value trend-up">{kpisData.summary.trendingUp}</span>
+      <span class="summary-label">Trending Up</span>
+    </div>
+    <div class="summary-card">
+      <span class="summary-value trend-down">{kpisData.summary.trendingDown}</span>
+      <span class="summary-label">Trending Down</span>
+    </div>
+    <div class="summary-card critical">
+      <span class="summary-value">{kpisData.summary.atRiskKPIs}</span>
+      <span class="summary-label">At Risk</span>
+    </div>
+  </div>
+
+  <!-- KPIs by Category -->
+  {categories.map((category) => {
+    const categoryKPIs = kpisData.kpis.filter(kpi => kpi.category === category);
+
+    return (
+      <section class="category-section">
+        <h2>{category} KPIs</h2>
+        <div class="kpis-grid">
+          {categoryKPIs.map((kpi) => {
+            const progress = calculateProgress(kpi.currentValue, kpi.targetValue);
+
+            return (
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <h3 class="kpi-name">{kpi.name}</h3>
+                  <span class={`kpi-status ${getStatusColor(kpi.status)}`}>
+                    {kpi.status === 'on-track' && 'On Track'}
+                    {kpi.status === 'at-risk' && 'At Risk'}
+                    {kpi.status === 'missing' && 'Missing Data'}
+                  </span>
+                </div>
+
+                <div class="kpi-values">
+                  <div class="value-group">
+                    <span class="value-label">Current</span>
+                    <div class="value-with-trend">
+                      <span class="value-current">{formatValue(kpi.currentValue, kpi.unit)}</span>
+                      <span class={`trend-indicator ${getTrendColor(kpi.trend)}`}>
+                        {getTrendIcon(kpi.trend)}
+                      </span>
+                    </div>
+                  </div>
+                  <div class="value-group">
+                    <span class="value-label">Target</span>
+                    <span class="value-target">{formatValue(kpi.targetValue, kpi.unit)}</span>
+                  </div>
+                </div>
+
+                <div class="progress-section">
+                  <div class="progress-bar">
+                    <div
+                      class="progress-fill"
+                      style={`width: ${progress}%`}
+                    ></div>
+                  </div>
+                  <span class="progress-percent">{Math.round(progress)}%</span>
+                </div>
+
+                <div class="kpi-footer">
+                  <span class="last-updated">Updated {formatDate(kpi.lastUpdated)}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    );
+  })}
+
+  <!-- Alerts and Recommendations -->
+  <section class="recommendations-section">
+    <h2>Alerts & Recommendations</h2>
+    <ul class="recommendations-list">
+      {kpisData.kpis.filter(kpi => kpi.status === 'at-risk').map((kpi) => (
+        <li class="recommendation warning">
+          <strong>{kpi.name}:</strong> Currently at {formatValue(kpi.currentValue, kpi.unit)},
+          {kpi.currentValue < kpi.targetValue ? 'below' : 'above'} target of {formatValue(kpi.targetValue, kpi.unit)}.
+          {kpi.trend === 'down' && 'Trending downward - immediate action required.'}
+          {kpi.trend === 'stable' && 'Stable but not meeting target.'}
+        </li>
+      ))}
+      {kpisData.summary.missingKPIs > 0 && (
+        <li class="recommendation info">
+          <strong>Missing Data:</strong> {kpisData.summary.missingKPIs} KPI(s) have missing or outdated data.
+          Update tracking to maintain accurate insights.
+        </li>
+      )}
+      {kpisData.summary.trendingUp > kpisData.summary.trendingDown && (
+        <li class="recommendation success">
+          <strong>Positive Momentum:</strong> {kpisData.summary.trendingUp} KPIs are trending upward.
+          Great progress across the organization!
+        </li>
+      )}
+    </ul>
+  </section>
+</WikiLayout>
+
+<style>
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .header-content h1 {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .page-description {
+    color: var(--text-secondary);
+    font-size: var(--text-base);
+  }
+
+  .back-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    transition: all 0.2s ease;
+  }
+
+  .back-button:hover {
+    border-color: var(--accent-color);
+    background: var(--bg-hover);
+  }
+
+  /* Summary Grid */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .summary-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+  }
+
+  .summary-card.critical {
+    border-color: #dc2626;
+  }
+
+  .summary-value {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .summary-value.trend-up {
+    color: #16a34a;
+  }
+
+  .summary-value.trend-down {
+    color: #dc2626;
+  }
+
+  .summary-label {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: var(--spacing-xs);
+  }
+
+  /* Category Section */
+  .category-section {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .category-section h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* KPIs Grid */
+  .kpis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .kpi-card {
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+  }
+
+  .kpi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .kpi-name {
+    margin: 0;
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    flex: 1;
+  }
+
+  .kpi-status {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .status-on-track {
+    background: rgba(22, 163, 74, 0.1);
+    color: #16a34a;
+  }
+
+  .status-at-risk {
+    background: rgba(234, 88, 12, 0.1);
+    color: #ea580c;
+  }
+
+  .status-missing {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+  }
+
+  /* KPI Values */
+  .kpi-values {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .value-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .value-label {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .value-with-trend {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-xs);
+  }
+
+  .value-current {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .value-target {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .trend-indicator {
+    font-size: var(--text-lg);
+    font-weight: 700;
+  }
+
+  .trend-up {
+    color: #16a34a;
+  }
+
+  .trend-down {
+    color: #dc2626;
+  }
+
+  .trend-stable {
+    color: var(--text-muted);
+  }
+
+  /* Progress */
+  .progress-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4263eb 0%, #818cf8 100%);
+    border-radius: var(--radius-sm);
+    transition: width 0.3s ease;
+  }
+
+  .progress-percent {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-secondary);
+    min-width: 40px;
+    text-align: right;
+  }
+
+  /* KPI Footer */
+  .kpi-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .last-updated {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  /* Recommendations */
+  .recommendations-section {
+    margin-top: var(--spacing-2xl);
+  }
+
+  .recommendations-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .recommendation {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border-left: 4px solid;
+  }
+
+  .recommendation.warning {
+    background: rgba(234, 88, 12, 0.05);
+    border-left-color: #ea580c;
+  }
+
+  .recommendation.info {
+    background: rgba(66, 99, 235, 0.05);
+    border-left-color: #4263eb;
+  }
+
+  .recommendation.success {
+    background: rgba(22, 163, 74, 0.05);
+    border-left-color: #16a34a;
+  }
+
+  .recommendation strong {
+    color: var(--text-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .page-header {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .summary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .kpis-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .kpi-header {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+  }
+</style>

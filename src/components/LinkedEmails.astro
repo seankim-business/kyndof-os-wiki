@@ -1,0 +1,263 @@
+---
+/**
+ * LinkedEmails Component
+ * Display email threads linked to an entity
+ */
+
+interface EmailThread {
+  threadId: string;
+  subject: string;
+  participants: string[]; // Email addresses or names
+  date: string;
+  snippet: string; // Short preview (NOT full body)
+  url: string; // Gmail URL
+  unread?: boolean;
+  hasAttachments?: boolean;
+}
+
+interface Props {
+  entityId: string;
+  emails?: EmailThread[];
+}
+
+const { entityId, emails = [] } = Astro.props;
+
+// Format timestamp
+function formatDate(timestamp: string): string {
+  const date = new Date(timestamp);
+  const now = new Date();
+  const diffMs = now.getTime() - date.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) return 'Today';
+  if (diffDays === 1) return 'Yesterday';
+  if (diffDays < 7) return `${diffDays} days ago`;
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+// Truncate text
+function truncate(text: string, maxLength: number = 80): string {
+  if (text.length <= maxLength) return text;
+  return text.substring(0, maxLength).trim() + '...';
+}
+
+// Format participants list
+function formatParticipants(participants: string[]): string {
+  if (participants.length === 0) return 'Unknown';
+  if (participants.length === 1) return participants[0];
+  if (participants.length === 2) return participants.join(', ');
+  return `${participants[0]} and ${participants.length - 1} other${participants.length - 1 !== 1 ? 's' : ''}`;
+}
+---
+
+<section class="linked-emails">
+  <div class="section-header">
+    <div class="header-content">
+      <svg class="gmail-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/>
+        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" fill="none"/>
+      </svg>
+      <h3>Email Threads</h3>
+    </div>
+    <span class="email-count">{emails.length}</span>
+  </div>
+
+  {emails.length === 0 ? (
+    <p class="empty-state">No email threads linked yet</p>
+  ) : (
+    <div class="emails-list">
+      {emails.map((email) => (
+        <a href={email.url} target="_blank" rel="noopener noreferrer" class="email-card" data-unread={email.unread}>
+          <div class="email-header">
+            <div class="email-subject-wrapper">
+              {email.unread && <span class="unread-dot" />}
+              <span class="email-subject">{truncate(email.subject, 60)}</span>
+              {email.hasAttachments && (
+                <svg class="attachment-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+                </svg>
+              )}
+            </div>
+            <span class="email-date">{formatDate(email.date)}</span>
+          </div>
+          <p class="email-participants">{formatParticipants(email.participants)}</p>
+          <p class="email-snippet">{truncate(email.snippet, 120)}</p>
+          <div class="external-link-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  )}
+</section>
+
+<style>
+  .linked-emails {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .gmail-icon {
+    width: 20px;
+    height: 20px;
+    color: #EA4335; /* Gmail brand red */
+  }
+
+  .section-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .email-count {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+  }
+
+  .empty-state {
+    padding: var(--spacing-lg);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-color);
+  }
+
+  .emails-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .email-card {
+    position: relative;
+    display: block;
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .email-card:hover {
+    border-color: #EA4335;
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-sm);
+    transform: translateX(2px);
+  }
+
+  .email-card[data-unread="true"] {
+    background: var(--bg-primary);
+  }
+
+  .email-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    margin-bottom: 4px;
+  }
+
+  .email-subject-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .unread-dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #EA4335;
+  }
+
+  .email-subject {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .email-card[data-unread="true"] .email-subject {
+    font-weight: 700;
+  }
+
+  .attachment-icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    color: var(--text-muted);
+  }
+
+  .email-date {
+    flex-shrink: 0;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .email-participants {
+    margin: 0 0 4px;
+    font-size: 13px;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .email-snippet {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .external-link-indicator {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .email-card:hover .external-link-indicator {
+    opacity: 1;
+  }
+
+  .external-link-indicator svg {
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted);
+  }
+</style>

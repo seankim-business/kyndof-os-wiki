@@ -1,0 +1,33 @@
+---
+id: "2ed4a6fb-8b06-807c-b4c3-d9bbd8e3ee6b"
+title: "비용 항목별\n  분석"
+type: "task"
+lastSynced: "2026-01-20T14:47:00.000Z"
+status: "1_ToDo"
+priority: "3"
+---
+
+# 비용 항목별
+  분석
+
+**Status:** 1_ToDo  
+**Type:** Task
+
+## Metadata
+
+- **Created:** 2026-01-19
+- **Priority:** 3
+
+## Relations
+
+### Parent Item
+- [[tasks/2ed4a6fb-8b06-8065-aad3-e35485398c4f|비용 효율]]
+
+### Functions
+- [[functions/2ed4a6fb-8b06-80ed-989c-e80e3582ad6d|Finance]]
+
+### Accountable
+- [[positions/2e04a6fb-8b06-81ab-b8e5-e84a55b39774|CEO STAFF]]
+
+---
+*Last synced: 2026-01-20*

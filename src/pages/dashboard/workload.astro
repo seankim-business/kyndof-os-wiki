@@ -1,0 +1,577 @@
+---
+import WikiLayout from '@layouts/WikiLayout.astro';
+
+// Sample workload data - in production, this would be loaded from wiki/src/data/dashboard.json
+const workloadData = {
+  summary: {
+    totalTeamMembers: 24,
+    overloadedMembers: 3,
+    underutilizedMembers: 2,
+    avgTasksPerPerson: 4.2,
+    avgHoursPerWeek: 38.5,
+    burnoutRisk: 2,
+  },
+  teamMembers: [
+    {
+      id: 'person-1',
+      name: 'Alice Johnson',
+      role: 'Engineering Lead',
+      activeTasks: 8,
+      hoursPerWeek: 45,
+      status: 'overloaded',
+      utilization: 125,
+    },
+    {
+      id: 'person-2',
+      name: 'Bob Smith',
+      role: 'Product Manager',
+      activeTasks: 12,
+      hoursPerWeek: 48,
+      status: 'overloaded',
+      utilization: 140,
+    },
+    {
+      id: 'person-3',
+      name: 'Carol White',
+      role: 'Designer',
+      activeTasks: 5,
+      hoursPerWeek: 38,
+      status: 'balanced',
+      utilization: 95,
+    },
+    {
+      id: 'person-4',
+      name: 'Dave Brown',
+      role: 'Engineer',
+      activeTasks: 2,
+      hoursPerWeek: 28,
+      status: 'underutilized',
+      utilization: 60,
+    },
+    {
+      id: 'person-5',
+      name: 'Eve Davis',
+      role: 'QA Engineer',
+      activeTasks: 6,
+      hoursPerWeek: 40,
+      status: 'balanced',
+      utilization: 100,
+    },
+    {
+      id: 'person-6',
+      name: 'Frank Miller',
+      role: 'Engineer',
+      activeTasks: 9,
+      hoursPerWeek: 46,
+      status: 'overloaded',
+      utilization: 130,
+    },
+    {
+      id: 'person-7',
+      name: 'Grace Lee',
+      role: 'Marketing',
+      activeTasks: 3,
+      hoursPerWeek: 32,
+      status: 'underutilized',
+      utilization: 65,
+    },
+    {
+      id: 'person-8',
+      name: 'Henry Chen',
+      role: 'Engineer',
+      activeTasks: 4,
+      hoursPerWeek: 37,
+      status: 'balanced',
+      utilization: 90,
+    },
+  ],
+};
+
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'balanced':
+      return 'status-balanced';
+    case 'overloaded':
+      return 'status-overloaded';
+    case 'underutilized':
+      return 'status-underutilized';
+    default:
+      return '';
+  }
+};
+
+const getUtilizationColor = (utilization: number) => {
+  if (utilization >= 110) return 'util-high';
+  if (utilization >= 80) return 'util-normal';
+  return 'util-low';
+};
+
+// Sort team members by status (overloaded first)
+const sortedMembers = [...workloadData.teamMembers].sort((a, b) => {
+  const statusOrder = { overloaded: 0, balanced: 1, underutilized: 2 };
+  return statusOrder[a.status] - statusOrder[b.status];
+});
+---
+
+<WikiLayout title="Workload Dashboard" description="Team workload and capacity insights">
+  <header class="page-header">
+    <div class="header-content">
+      <h1>Workload Dashboard</h1>
+      <p class="page-description">Monitor team capacity, task distribution, and burnout risk</p>
+    </div>
+    <a href="/dashboard" class="back-button">← Back to Dashboard</a>
+  </header>
+
+  <!-- Summary Stats -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <span class="summary-value">{workloadData.summary.totalTeamMembers}</span>
+      <span class="summary-label">Team Members</span>
+    </div>
+    <div class="summary-card">
+      <span class="summary-value">{workloadData.summary.avgTasksPerPerson.toFixed(1)}</span>
+      <span class="summary-label">Avg Tasks/Person</span>
+    </div>
+    <div class="summary-card">
+      <span class="summary-value">{workloadData.summary.avgHoursPerWeek.toFixed(0)}h</span>
+      <span class="summary-label">Avg Hours/Week</span>
+    </div>
+    <div class="summary-card critical">
+      <span class="summary-value">{workloadData.summary.overloadedMembers}</span>
+      <span class="summary-label">Overloaded</span>
+    </div>
+  </div>
+
+  <!-- Workload Distribution Chart -->
+  <section class="distribution-section">
+    <h2>Workload Distribution</h2>
+    <div class="distribution-chart">
+      <div class="chart-bar">
+        <div class="bar-segment overloaded" style={`flex: ${workloadData.summary.overloadedMembers}`}>
+          <span class="segment-label">{workloadData.summary.overloadedMembers}</span>
+        </div>
+        <div class="bar-segment balanced" style={`flex: ${workloadData.summary.totalTeamMembers - workloadData.summary.overloadedMembers - workloadData.summary.underutilizedMembers}`}>
+          <span class="segment-label">{workloadData.summary.totalTeamMembers - workloadData.summary.overloadedMembers - workloadData.summary.underutilizedMembers}</span>
+        </div>
+        <div class="bar-segment underutilized" style={`flex: ${workloadData.summary.underutilizedMembers}`}>
+          <span class="segment-label">{workloadData.summary.underutilizedMembers}</span>
+        </div>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item">
+          <span class="legend-color overloaded"></span>
+          <span>Overloaded (>110%)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color balanced"></span>
+          <span>Balanced (80-110%)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color underutilized"></span>
+          <span>Underutilized (<80%)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Members List -->
+  <section class="team-section">
+    <h2>Team Members</h2>
+    <div class="team-list">
+      {sortedMembers.map((member) => (
+        <div class="member-card">
+          <div class="member-header">
+            <div class="member-info">
+              <h3 class="member-name">{member.name}</h3>
+              <span class="member-role">{member.role}</span>
+            </div>
+            <span class={`status-badge ${getStatusColor(member.status)}`}>
+              {member.status === 'overloaded' && 'Overloaded'}
+              {member.status === 'balanced' && 'Balanced'}
+              {member.status === 'underutilized' && 'Underutilized'}
+            </span>
+          </div>
+
+          <div class="member-stats">
+            <div class="stat-item">
+              <span class="stat-label">Active Tasks</span>
+              <span class="stat-value">{member.activeTasks}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Hours/Week</span>
+              <span class="stat-value">{member.hoursPerWeek}h</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Utilization</span>
+              <span class={`stat-value ${getUtilizationColor(member.utilization)}`}>
+                {member.utilization}%
+              </span>
+            </div>
+          </div>
+
+          <div class="utilization-bar">
+            <div
+              class={`utilization-fill ${getUtilizationColor(member.utilization)}`}
+              style={`width: ${Math.min(member.utilization, 150)}%`}
+            ></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Recommendations -->
+  <section class="recommendations-section">
+    <h2>Recommendations</h2>
+    <ul class="recommendations-list">
+      {workloadData.summary.overloadedMembers > 0 && (
+        <li class="recommendation critical">
+          <strong>Critical:</strong> {workloadData.summary.overloadedMembers} team member(s) are overloaded (over 110% utilization).
+          Redistribute tasks to prevent burnout.
+        </li>
+      )}
+      {workloadData.summary.underutilizedMembers > 0 && (
+        <li class="recommendation info">
+          <strong>Opportunity:</strong> {workloadData.summary.underutilizedMembers} team member(s) have capacity (under 80% utilization).
+          Consider assigning additional tasks.
+        </li>
+      )}
+      {workloadData.summary.avgHoursPerWeek > 40 && (
+        <li class="recommendation warning">
+          <strong>Warning:</strong> Average hours per week ({workloadData.summary.avgHoursPerWeek.toFixed(1)}h) exceeds 40 hours.
+          Monitor team health and adjust workload.
+        </li>
+      )}
+    </ul>
+  </section>
+</WikiLayout>
+
+<style>
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .header-content h1 {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .page-description {
+    color: var(--text-secondary);
+    font-size: var(--text-base);
+  }
+
+  .back-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    transition: all 0.2s ease;
+  }
+
+  .back-button:hover {
+    border-color: var(--accent-color);
+    background: var(--bg-hover);
+  }
+
+  /* Summary Grid */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .summary-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+  }
+
+  .summary-card.critical {
+    border-color: #dc2626;
+  }
+
+  .summary-value {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .summary-label {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: var(--spacing-xs);
+  }
+
+  /* Distribution Chart */
+  .distribution-section {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .distribution-section h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .distribution-chart {
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+  }
+
+  .chart-bar {
+    display: flex;
+    height: 60px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .bar-segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+  }
+
+  .bar-segment.overloaded {
+    background: #dc2626;
+  }
+
+  .bar-segment.balanced {
+    background: #16a34a;
+  }
+
+  .bar-segment.underutilized {
+    background: #0891b2;
+  }
+
+  .segment-label {
+    font-size: var(--text-lg);
+  }
+
+  .chart-legend {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-sm);
+  }
+
+  .legend-color.overloaded {
+    background: #dc2626;
+  }
+
+  .legend-color.balanced {
+    background: #16a34a;
+  }
+
+  .legend-color.underutilized {
+    background: #0891b2;
+  }
+
+  /* Team Section */
+  .team-section h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .team-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .member-card {
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+  }
+
+  .member-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .member-name {
+    margin: 0 0 var(--spacing-xs);
+    font-size: var(--text-base);
+    color: var(--text-primary);
+  }
+
+  .member-role {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .status-badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .status-balanced {
+    background: rgba(22, 163, 74, 0.1);
+    color: #16a34a;
+  }
+
+  .status-overloaded {
+    background: rgba(220, 38, 38, 0.1);
+    color: #dc2626;
+  }
+
+  .status-underutilized {
+    background: rgba(8, 145, 178, 0.1);
+    color: #0891b2;
+  }
+
+  /* Member Stats */
+  .member-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .stat-label {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  .stat-value {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .stat-value.util-high {
+    color: #dc2626;
+  }
+
+  .stat-value.util-normal {
+    color: #16a34a;
+  }
+
+  .stat-value.util-low {
+    color: #0891b2;
+  }
+
+  /* Utilization Bar */
+  .utilization-bar {
+    height: 6px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .utilization-fill {
+    height: 100%;
+    border-radius: var(--radius-sm);
+    transition: width 0.3s ease;
+  }
+
+  .utilization-fill.util-high {
+    background: #dc2626;
+  }
+
+  .utilization-fill.util-normal {
+    background: #16a34a;
+  }
+
+  .utilization-fill.util-low {
+    background: #0891b2;
+  }
+
+  /* Recommendations */
+  .recommendations-section {
+    margin-top: var(--spacing-2xl);
+  }
+
+  .recommendations-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .recommendation {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border-left: 4px solid;
+  }
+
+  .recommendation.critical {
+    background: rgba(220, 38, 38, 0.05);
+    border-left-color: #dc2626;
+  }
+
+  .recommendation.warning {
+    background: rgba(234, 88, 12, 0.05);
+    border-left-color: #ea580c;
+  }
+
+  .recommendation.info {
+    background: rgba(66, 99, 235, 0.05);
+    border-left-color: #4263eb;
+  }
+
+  .recommendation strong {
+    color: var(--text-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .page-header {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .summary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-list {
+      grid-template-columns: 1fr;
+    }
+
+    .chart-legend {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

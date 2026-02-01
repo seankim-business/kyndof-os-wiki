@@ -1,0 +1,24 @@
+{
+  "example-entity-id": [
+    {
+      "threadId": "1234567890.123456",
+      "channelName": "engineering",
+      "channelId": "C01234567",
+      "timestamp": "2025-01-28T10:30:00Z",
+      "participants": ["alice@company.com", "bob@company.com", "charlie@company.com"],
+      "replyCount": 12,
+      "preview": "Hey team, I wanted to discuss the new feature we're planning for Q2. I've outlined the main requirements in the doc, but I'd love to get your input on the technical approach.",
+      "url": "https://company.slack.com/archives/C01234567/p1234567890123456"
+    },
+    {
+      "threadId": "1234567891.123456",
+      "channelName": "product",
+      "channelId": "C01234568",
+      "timestamp": "2025-01-25T14:15:00Z",
+      "participants": ["alice@company.com", "diane@company.com"],
+      "replyCount": 5,
+      "preview": "Quick update on the user research findings - we've identified three main pain points that we should address in the next sprint.",
+      "url": "https://company.slack.com/archives/C01234568/p1234567891123456"
+    }
+  ]
+}

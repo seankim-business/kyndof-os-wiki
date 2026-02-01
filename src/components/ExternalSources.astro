@@ -1,0 +1,279 @@
+---
+/**
+ * ExternalSources Component
+ * Wrapper component that combines all external source displays
+ * (Slack threads, Email threads, Drive documents)
+ */
+
+import LinkedSlackThreads from './LinkedSlackThreads.astro';
+import LinkedEmails from './LinkedEmails.astro';
+import LinkedDocuments from './LinkedDocuments.astro';
+
+interface SlackThread {
+  threadId: string;
+  channelName: string;
+  channelId: string;
+  timestamp: string;
+  participants: string[];
+  replyCount: number;
+  preview: string;
+  url: string;
+}
+
+interface EmailThread {
+  threadId: string;
+  subject: string;
+  participants: string[];
+  date: string;
+  snippet: string;
+  url: string;
+  unread?: boolean;
+  hasAttachments?: boolean;
+}
+
+interface DriveDocument {
+  documentId: string;
+  name: string;
+  mimeType: string;
+  url: string;
+  lastModified: string;
+  owner?: string;
+  iconUrl?: string;
+}
+
+interface Props {
+  entityId: string;
+  slackThreads?: SlackThread[];
+  emails?: EmailThread[];
+  documents?: DriveDocument[];
+  defaultExpanded?: boolean;
+}
+
+const {
+  entityId,
+  slackThreads = [],
+  emails = [],
+  documents = [],
+  defaultExpanded = true,
+} = Astro.props;
+
+// Count total external sources
+const totalSources = slackThreads.length + emails.length + documents.length;
+
+// Check if any sources are synced
+const hasSlack = slackThreads.length > 0;
+const hasEmails = emails.length > 0;
+const hasDocuments = documents.length > 0;
+const hasSources = totalSources > 0;
+---
+
+<section class="external-sources" data-expanded={defaultExpanded}>
+  <div class="sources-header">
+    <div class="header-content">
+      <svg class="sources-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      </svg>
+      <h2>External Sources</h2>
+      {totalSources > 0 && (
+        <span class="sources-count">{totalSources}</span>
+      )}
+    </div>
+    <button class="toggle-button" aria-label="Toggle external sources">
+      <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="sources-content">
+    {!hasSources ? (
+      <div class="no-sources-message">
+        <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="16" x2="12" y2="12" />
+          <line x1="12" y1="8" x2="12.01" y2="8" />
+        </svg>
+        <p class="no-sources-text">
+          No external sources linked yet. External sources will appear here after syncing with Slack, Gmail, and Google Drive.
+        </p>
+      </div>
+    ) : (
+      <div class="sources-grid">
+        {hasSlack && (
+          <div class="source-section">
+            <LinkedSlackThreads entityId={entityId} threads={slackThreads} />
+          </div>
+        )}
+        {hasEmails && (
+          <div class="source-section">
+            <LinkedEmails entityId={entityId} emails={emails} />
+          </div>
+        )}
+        {hasDocuments && (
+          <div class="source-section">
+            <LinkedDocuments entityId={entityId} documents={documents} />
+          </div>
+        )}
+      </div>
+    )}
+  </div>
+</section>
+
+<script>
+  // Toggle expand/collapse functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const externalSources = document.querySelector('.external-sources');
+    if (!externalSources) return;
+
+    const toggleButton = externalSources.querySelector('.toggle-button');
+    const sourcesContent = externalSources.querySelector('.sources-content');
+
+    if (!toggleButton || !sourcesContent) return;
+
+    toggleButton.addEventListener('click', () => {
+      const isExpanded = externalSources.getAttribute('data-expanded') === 'true';
+      externalSources.setAttribute('data-expanded', String(!isExpanded));
+    });
+  });
+</script>
+
+<style>
+  .external-sources {
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+  }
+
+  .sources-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .sources-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--text-secondary);
+  }
+
+  .sources-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .sources-count {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    padding: 3px 10px;
+    border-radius: var(--radius-sm);
+  }
+
+  .toggle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .toggle-button:hover {
+    background: var(--bg-secondary);
+    border-color: var(--border-hover);
+  }
+
+  .toggle-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--text-secondary);
+    transition: transform 0.3s ease;
+  }
+
+  .external-sources[data-expanded="false"] .toggle-icon {
+    transform: rotate(-90deg);
+  }
+
+  .sources-content {
+    max-height: 2000px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+    opacity: 1;
+    margin-top: var(--spacing-lg);
+  }
+
+  .external-sources[data-expanded="false"] .sources-content {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+  }
+
+  .no-sources-message {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-color);
+  }
+
+  .info-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--text-muted);
+  }
+
+  .no-sources-text {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .sources-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+
+  .source-section {
+    /* Individual sections are styled by their respective components */
+  }
+
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    .external-sources {
+      padding: var(--spacing-md);
+    }
+
+    .sources-header h2 {
+      font-size: 16px;
+    }
+
+    .no-sources-message {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
