@@ -11,14 +11,16 @@ permalink: /operations/
 
 {: .highlight }
 > **Layer 2**: 어떻게 가치를 창출하는가?
+> Last updated: 2026-02-02
 
 비즈니스 운영의 핵심 구성요소입니다:
 
-| 구성요소 | 설명 | 페이지 |
-|:---------|:-----|:-------|
-| **Business Model** | 가치 창출 방법 | [보기](business-model/) |
-| **Value Streams** | 고객 가치 전달 흐름 (nested hierarchy) | [보기](value-streams/) |
-| **Functions & Processes** | 기능과 프로세스 (nested hierarchy) | [보기](functions/) |
+| 구성요소 | 설명 | 개수 | 페이지 |
+|:---------|:-----|:-----|:-------|
+| **Business Model** | 가치 창출 방법 | 1 | [보기](business-model/) |
+| **Value Streams** | 고객 가치 전달 흐름 (nested hierarchy) | 1 | [보기](value-streams/) |
+| **Functions & Processes** | 기능과 프로세스 (nested hierarchy) | 16 | [보기](functions/) |
+| **Strategies** | 전략적 접근 방법 | 60 | - |
 
 ## IMS 흐름에서의 위치
 

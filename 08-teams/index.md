@@ -7,78 +7,97 @@ has_children: true
 
 # Teams
 
-> Auto-generated | 2026-02-01
+> Auto-generated | 2026-02-02
 
 ## Overview
 
 - **Departments:** 6
-- **Positions:** 22
+- **Positions:** 23
+- **Total Headcount:** 23
 
 ## Departments
 
 ### 2000Atelier
+Production and design atelier team.
 
-
-**Head:** 2e14a6fb-8b06-806d-8b38-f3f3fea7a74a
-**Positions:** N/A
+**Positions:** 5
+- Assistant Technical Designer
+- Technical Design Lead
+- Atelier Design Lead
+- Creative Director
+- Atelier Designer
 
 ### Brand Ops
+Brand operations, marketing, and merchandising.
 
-
-**Head:** 2e14a6fb-8b06-806d-8b38-f3f3fea7a74a
-**Positions:** N/A
+**Positions:** 8
+- MD-Sales
+- Supply Chain Manager
+- Brand Ops Manager
+- Celebrity Account Manager
+- Marketer
+- MD-Operations
+- Customer Success Manager
+- MD-Planning
 
 ### 2000Archives
+Fashion archives and brand design.
 
-
-**Head:** 2e04a6fb-8b06-801d-9f55-d85231a69dbf
-**Positions:** N/A
+**Positions:** 6
+- (Acting) Brand Lead
+- Senior Fashion Designer
+- Creative Director
+- Junior Fashion Designer
+- Fashion Design Intern
+- Fashion Design Lead
 
 ### CEO Office
+Executive leadership office.
 
-
-**Head:** 2e04a6fb-8b06-81ab-aaa3-fd2607c3d118
-**Positions:** N/A
+**Positions:** 2
+- CEO
+- CEO STAFF
 
 ### Corp Ops
+Corporate operations and administrative functions.
 
-
-**Head:** 2e04a6fb-8b06-81ab-b8e5-e84a55b39774
-**Positions:** N/A
+**Positions:** 2
+- Business Admin Manager
+- Full-stack Ops Engineer
 
 ### Kyndof
+Company-wide umbrella organization.
 
-
-**Head:** 2e04a6fb-8b06-81ab-aaa3-fd2607c3d118
-**Positions:** N/A
+**Positions:** 0
+(No dedicated positions, company-level functions)
 
 
 ## Positions
 
 | Position | Department |
 |----------|------------|
-| (Acting) Brand Lead | 2e04a6fb-8b06-80b5-bf60-dcbcdfc98b20 |
-| Senior Fashion Designer | 2e04a6fb-8b06-80b5-bf60-dcbcdfc98b20 |
-| Assistant Technical Designer | 2e04a6fb-8b06-8042-be1f-c43f06ad0476 |
-| Technical Design Lead | 2e04a6fb-8b06-8042-be1f-c43f06ad0476 |
-| Business Admin Manager | 2ed4a6fb-8b06-806f-9c49-e6e4ab72c3cb |
-| Atelier Design Lead | 2e04a6fb-8b06-8042-be1f-c43f06ad0476 |
-| Creative Director | 2e04a6fb-8b06-80b5-bf60-dcbcdfc98b20,2e04a6fb-8b06-8042-be1f-c43f06ad0476 |
-| Atelier Designer | 2e04a6fb-8b06-8042-be1f-c43f06ad0476 |
-| Junior Fashion Designer | 2e04a6fb-8b06-80b5-bf60-dcbcdfc98b20 |
-| Fashion Design Intern | 2e04a6fb-8b06-80b5-bf60-dcbcdfc98b20 |
-| Fashion Design Lead | 2e04a6fb-8b06-80b5-bf60-dcbcdfc98b20 |
-| MD-Sales | 2e04a6fb-8b06-8058-8adb-ec6dc3789990 |
-| CEO | 2e04a6fb-8b06-81e0-8a59-e53f6f51cdbc |
-| CEO STAFF | 2e04a6fb-8b06-81e0-8a59-e53f6f51cdbc |
-| Supply Chain Manager | 2e04a6fb-8b06-8058-8adb-ec6dc3789990 |
-| Brand Ops Manager | 2e04a6fb-8b06-8058-8adb-ec6dc3789990 |
-| Celebrity Account Manager | 2e04a6fb-8b06-8058-8adb-ec6dc3789990 |
-| Marketer | 2e04a6fb-8b06-8058-8adb-ec6dc3789990 |
-| MD-Operations | 2e04a6fb-8b06-8058-8adb-ec6dc3789990 |
-| Full-stack Ops Engineer | 2ed4a6fb-8b06-806f-9c49-e6e4ab72c3cb |
-| Customer Success Manager | 2e04a6fb-8b06-8058-8adb-ec6dc3789990 |
-| MD-Planning | 2e04a6fb-8b06-8058-8adb-ec6dc3789990 |
+| (Acting) Brand Lead | 2000Archives |
+| Senior Fashion Designer | 2000Archives |
+| Assistant Technical Designer | 2000Atelier |
+| Technical Design Lead | 2000Atelier |
+| Business Admin Manager | Corp Ops |
+| Atelier Design Lead | 2000Atelier |
+| Creative Director | 2000Archives, 2000Atelier |
+| Atelier Designer | 2000Atelier |
+| Junior Fashion Designer | 2000Archives |
+| Fashion Design Intern | 2000Archives |
+| Fashion Design Lead | 2000Archives |
+| MD-Sales | Brand Ops |
+| CEO | CEO Office |
+| CEO STAFF | CEO Office |
+| Supply Chain Manager | Brand Ops |
+| Brand Ops Manager | Brand Ops |
+| Celebrity Account Manager | Brand Ops |
+| Marketer | Brand Ops |
+| MD-Operations | Brand Ops |
+| Full-stack Ops Engineer | Corp Ops |
+| Customer Success Manager | Brand Ops |
+| MD-Planning | Brand Ops |
 
 
 
