@@ -6,7 +6,7 @@ const importanceBasedSchema = z.object({
   description: z.string(),
   priority: z.number().min(0).max(99),
   tags: z.array(z.string()).optional().default([]),
-  lastUpdated: z.string(), // YYYY-MM-DD format
+  lastUpdated: z.coerce.string(), // YYYY-MM-DD format (coerced from Date if needed)
   relatedDocs: z.array(z.string()).optional().default([]),
 });
 

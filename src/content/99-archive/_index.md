@@ -1,110 +1,74 @@
 ---
-title: "아카이브"
-description: "과거 데이터, 레거시 콘텐츠, 참고 자료"
+title: "Archive"
+description: "Legacy database exports and historical content"
 priority: 99
 tags: [archive, legacy, historical, reference]
-lastUpdated: 2025-02-01
+lastUpdated: 2026-02-02
 ---
 
-# 아카이브 (Archive)
+# Archive
 
 > **최하위 우선순위**: 과거 기록 및 참고 자료
 
-## 📦 포함 내용
+## Migration Status (2026-02-02)
 
-### 레거시 콘텐츠
-- 이전 wiki 구조의 콘텐츠
-- Database 생성 자동 문서
-- 마이그레이션 대기 항목
+### Completed
 
-### 과거 데이터
-- 완료된 오래된 프로젝트
-- 사용 중단된 프로세스
-- 역사적 기록
+IMS 기반 구조 개편으로 인해 기존 database-export 폴더들이 archive로 이동됨.
 
-### 참고 자료
-- 학습용 과거 사례
-- 벤치마크 데이터
-- 초기 실험 결과
+신규 콘텐츠 작성 위치:
+| Old Location | New Location | Layer |
+|--------------|--------------|-------|
+| goals/, strategies/ | `01-goals-strategy/` | Strategy |
+| businessModels/ | `02-business-model/` | Operations |
+| functions/, processes/ | `04-functions-processes/` | Operations |
+| projects/, tasks/ | `05-projects/` | Execution |
+| N/A | `06-governance/` | Governance |
+| N/A | `07-partners-clients/` | External |
+| departments/, positions/ | `08-teams/` | Organization |
 
-## 마이그레이션 상태
+## legacy-database-exports/
 
-### ✅ 완료
-- [항목]: [새 위치]
+Notion 데이터베이스에서 자동 생성된 레거시 콘텐츠:
 
-### 🔄 진행중
-- [항목]: [마이그레이션 계획]
+| Folder | Count | Description |
+|--------|-------|-------------|
+| tasks/ | ~3,800 | 태스크 목록 |
+| projects/ | ~180 | 프로젝트 목록 |
+| strategies/ | ~60 | 전략 목록 |
+| results/ | ~35 | 결과 기록 |
+| goals/ | ~30 | 목표 목록 |
+| positions/ | ~25 | 직책 정보 |
+| companyWiki/ | ~20 | 구 위키 콘텐츠 |
+| meetings/ | ~18 | 회의 기록 |
+| functions/ | ~18 | 기능 목록 |
+| hypothesis/ | ~12 | 가설 기록 |
+| kpis/ | ~8 | KPI 데이터 |
+| departments/ | ~6 | 부서 정보 |
+| businessModels/ | ~6 | 비즈니스 모델 |
+| processes/ | ~4 | 프로세스 정보 |
 
-### 📋 대기
-- [항목]: [마이그레이션 필요성]
+## Retention Policy
 
-## 레거시 폴더
+### Archive Criteria
+- **Age**: 2년 이상 미사용
+- **Relevance**: 현재 업무와 무관
+- **Duplication**: 새 구조에 통합됨
+- **Quality**: 개선 없이 유지 불가
 
-### 기존 Database 생성 콘텐츠
-현재 유지되는 레거시 폴더들:
-
-- `tasks/`: 작업 데이터 (3857 항목)
-- `goals/`: 목표 데이터
-- `strategies/`: 전략 데이터
-- `processes/`: 프로세스 데이터
-- `projects/`: 프로젝트 데이터
-- `kpis/`: KPI 데이터
-- `departments/`: 부서 데이터
-- `results/`: 결과 데이터
-- `companyWiki/`: 회사 위키 데이터
-- `positions/`: 직책 데이터
-- `functions/`: 기능 데이터
-- `hypothesis/`: 가설 데이터
-- `meetings/`: 회의 데이터
-- `businessModels/`: 비즈니스 모델 데이터
-
-**점진적 마이그레이션 계획**:
-1. 우선순위별 콘텐츠 선별
-2. 새 구조에 맞게 재구성
-3. 메타데이터 추가
-4. 상호 링크 생성
-5. 검증 후 이동
-
-## 보관 정책
-
-### 보관 기준
-다음 항목들은 아카이브로 이동:
-
-- **시간**: 2년 이상 미사용
-- **관련성**: 현재 업무와 무관
-- **중복**: 새 구조에 통합됨
-- **품질**: 개선 없이 유지 불가
-
-### 보관 방법
-1. 원본 유지 (삭제 금지)
-2. 아카이브 표시 추가
-3. 검색 가능성 유지
-4. 정기 검토 (연 1회)
-
-## 검색 가능성
-
+### Search Behavior
 아카이브 콘텐츠도 검색 가능하지만:
+- **Low Priority**: 검색 결과 하단 표시
+- **Explicit Tag**: [ARCHIVED] 표시
+- **Context**: 아카이브 사유 명시
 
-- **낮은 우선순위**: 검색 결과 하단
-- **명시적 표시**: [ARCHIVED] 태그
-- **컨텍스트 제공**: 왜 아카이브되었는지
+## Navigation
 
-## AI 검색 최적화
-
-이 섹션은 다음 질문에 답합니다:
-
-- "과거 [주제]에 대한 자료는?"
-- "이전 [프로젝트] 사례는?"
-- "[년도]의 접근 방식은?"
-
-**명시적 안내**: "현재는 [새 방법]을 사용합니다"
-
-## 관련 문서
-
-- [현재 프로젝트](../01-projects/) - 활성 작업
-- [현재 프로세스](../03-processes/) - 최신 방법론
+- Home: [Wiki Home](../)
+- Current Projects: [Projects](../05-projects/)
+- Current Processes: [Functions & Processes](../04-functions-processes/)
 
 ---
 
-**마지막 업데이트**: 2025-02-01
-**검토 주기**: 연 1회
+**Last Updated**: 2026-02-02
+**Review Cycle**: Annually
