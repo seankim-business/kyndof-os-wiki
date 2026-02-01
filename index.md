@@ -9,39 +9,49 @@ lastUpdated: 2026-02-02
 
 > **최우선 랜딩 페이지**: AI 및 사람이 회사를 이해하는 출발점
 
+## 현황 요약 (2026-02-02 기준)
+
+| 항목 | 수량 | 상태 |
+|------|------|------|
+| **Goals** | 31개 | 19개 Off Track, 1개 On Track |
+| **Projects** | 177개 | 7개 진행 중, 118개 완료 |
+| **Departments** | 6개 | CEO Office, Brand Ops, 2000Atelier, 2000Archives, Corp Ops, Kyndof |
+| **Positions** | 22개 | RABSIC 기반 역할 체계 |
+| **Strategies** | 60개 | 목표 달성 전략 |
+
 ## IMS (Internal Management System) 네비게이션
 
 회사 정보는 **IMS 서사 흐름**에 따라 구조화되어 있습니다:
 
 ### Strategy Layer (Why → What)
 
-| # | Section | Description |
-|---|---------|-------------|
-| 00 | [Vision & Mission](./00-vision-mission) | 회사의 존재 이유 |
-| 01 | [Goals & Strategy](./01-goals-strategy) | 목표와 전략적 방향 |
+| # | Section | Description | Status |
+|---|---------|-------------|--------|
+| 00 | [Vision & Mission](./00-vision-mission) | 회사의 존재 이유 | 📝 |
+| 01 | [Goals & Strategy](./01-goals-strategy) | 목표와 전략적 방향 (31개 목표) | ✅ |
 
 ### Operations Layer (What → How)
 
-| # | Section | Description |
-|---|---------|-------------|
-| 02 | [Business Model](./02-business-model) | 가치 창출 방법 |
-| 03 | [Value Streams](./03-value-streams) | 고객 가치 전달 흐름 |
-| 04 | [Functions & Processes](./04-functions-processes) | 기능과 프로세스 |
+| # | Section | Description | Status |
+|---|---------|-------------|--------|
+| 02 | [Business Model](./02-business-model) | 가치 창출 방법 | 📝 |
+| 03 | [Value Streams](./03-value-streams) | 고객 가치 전달 흐름 | 📝 |
+| 04 | [Functions & Processes](./04-functions-processes) | 기능과 프로세스 | 📝 |
 
 ### Execution Layer (How → Do)
 
-| # | Section | Description |
-|---|---------|-------------|
-| 05 | [Projects](./05-projects) | 전략 실행 프로젝트 |
-| 06 | [Governance](./06-governance) | RABSIC 책임 체계 |
+| # | Section | Description | Status |
+|---|---------|-------------|--------|
+| 05 | [Projects](./05-projects) | 전략 실행 프로젝트 (177개, 7개 진행 중) | ✅ |
+| 06 | [Governance](./06-governance) | RABSIC 책임 체계 | 📝 |
 
 ### Relationships & Organization
 
-| # | Section | Description |
-|---|---------|-------------|
-| 07 | [Partners & Clients](./07-partners-clients) | 외부 관계 |
-| 08 | [Teams](./08-teams) | 조직 구조 |
-| 99 | [Archive](./99-archive) | 레거시 자료 |
+| # | Section | Description | Status |
+|---|---------|-------------|--------|
+| 07 | [Partners & Clients](./07-partners-clients) | 외부 관계 | 📝 |
+| 08 | [Teams](./08-teams) | 조직 구조 (6개 부서, 22개 포지션) | ✅ |
+| 99 | [Archive](./99-archive) | 레거시 자료 | 📝 |
 
 ## IMS 서사 흐름
 
