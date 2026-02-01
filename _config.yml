@@ -1,0 +1,14 @@
+# Kyndof Wiki - GitHub Pages Configuration
+title: Kyndof Wiki
+description: Internal company wiki for Kyndof IMS
+theme: jekyll-theme-minimal
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude from build
+exclude:
+  - .omc/
+  - CLAUDE.md
+  - README.md
