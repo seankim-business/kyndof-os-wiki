@@ -1,123 +1,65 @@
-# Kyndof Wiki - GitHub Pages Configuration
+# Kyndof Wiki - Internal Knowledge Base
+
+# Site settings
 title: Kyndof Wiki
-description: IMS 기반 회사 전체 개요 및 주요 정보 허브
-baseurl: "/kyndof-os"
-url: "https://kyndof.github.io"
-
-# Theme
-remote_theme: just-the-docs/just-the-docs@v0.10.0
-
-# Color scheme (light, dark, auto)
-color_scheme: auto
-
-# Logo
-logo: "/assets/images/logo.svg"
-
-# Favicon
-favicon_ico: "/assets/images/favicon.ico"
-
-# Search
-search_enabled: true
-search:
-  heading_level: 2
-  previews: 3
-  preview_words_before: 5
-  preview_words_after: 10
-  tokenizer_separator: /[\s/]+/
-  rel_url: true
-  button: true
-
-# Navigation
-nav_enabled: true
-nav_sort: case_sensitive
-
-# Navigation external links (added to nav sidebar)
-nav_external_links:
-  - title: World Model Repository
-    url: https://github.com/Kyndof/kyndof-os/tree/main/world-model
-
-# Aux links (top-right)
-aux_links:
-  "GitHub":
-    - "https://github.com/Kyndof/kyndof-os"
-
-aux_links_new_tab: true
-
-# Footer
-footer_content: "Copyright &copy; 2026 Kyndof. All rights reserved."
-
-# Back to top link
-back_to_top: true
-back_to_top_text: "맨 위로"
-
-# Breadcrumbs configuration
-breadcrumbs:
-  enabled: true
-
-# Collections for section organization
-collections:
-  docs:
-    permalink: "/:collection/:path/"
-    output: true
-
-# Just the Docs defaults
-just_the_docs:
-  collections:
-    docs:
-      name: Documentation
-      nav_fold: true  # Enable folding/collapsing for deep hierarchies
-
-# Default layouts
-defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
-  - scope:
-      path: ""
-      type: "docs"
-    values:
-      layout: "default"
+description: Your guide to working at Kyndof
+url: https://seankim-business.github.io
+baseurl: /kyndof-os/wiki
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
-
-kramdown:
-  syntax_highlighter_opts:
-    block:
-      line_numbers: false
-
-# Exclude from build
-exclude:
-  - .omc/
-  - CLAUDE.md
-  - README.md
-  - Gemfile
-  - Gemfile.lock
-  - node_modules/
-  - vendor/
+theme: minima
 
 # Plugins
 plugins:
+  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Callouts (custom admonitions)
-callouts_level: quiet
-callouts:
-  highlight:
-    color: yellow
-  important:
-    title: 중요
-    color: blue
-  new:
-    title: 신규
-    color: green
-  note:
-    title: 참고
-    color: purple
-  warning:
-    title: 주의
-    color: red
+# Navigation
+header_pages:
+  - start-here/index.md
+  - our-teams/index.md
+  - how-we-work/index.md
+  - what-we-make/index.md
+  - people/index.md
+  - clients-partners/index.md
+  - reference/index.md
+
+# Collections
+collections:
+  teams:
+    output: true
+    permalink: /teams/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: "teams"
+    values:
+      layout: page
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - CLAUDE.md
+  - AGENTS.md
+
+# kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+# GitHub Pages specific settings
+github: [metadata]

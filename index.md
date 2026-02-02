@@ -6,35 +6,68 @@ nav_order: 1
 
 # Kyndof Wiki
 
-> Auto-generated from Knowledge Graph | Last updated: 2026-02-02
+> Internal knowledge base | Last updated: 2026-02-02
 
 ## Quick Stats
 
 | Metric | Count |
 |--------|-------|
-| Goals | 31 |
-| Projects | 177 |
-| Active Projects | 13 |
+| Total Pages | 1771 |
+| Audit Log | 0 |
+| BusinessModels | 5 |
+| Calendar Events | 107 |
+| CompanyWiki | 101 |
+| Decisions | 0 |
 | Departments | 6 |
-| Positions | 23 |
-| People (extracted) | 254 |
-| Companies (extracted) | 117 |
+| Email Threads | 204 |
+| Entities | 0 |
+| Functions | 16 |
+| Goals | 31 |
+| Hypothesis | 10 |
+| Interactions | 0 |
+| Issues | 0 |
+| Kpis | 6 |
+| Meetings | 17 |
+| People | 254 |
+| Permissions | 0 |
+| Positions | 22 |
+| Processes | 14 |
+| Projects | 177 |
+| Rabsic Matrix | 0 |
+| Results | 33 |
+| Slack Threads | 43 |
+| Strategies | 60 |
+| Tasks | 5209 |
+| Use Cases | 0 |
+| Value Streams | 1 |
 
 ## Navigation
 
 | Section | Description |
 |---------|-------------|
-| [Vision & Mission](./00-vision-mission/) | Our purpose and direction |
-| [Goals & Strategy](./01-goals-strategy/) | 31 goals and strategies |
-| [Business Model](./02-business-model/) | How we create value |
-| [Value Streams](./03-value-streams/) | End-to-end flows |
-| [Functions](./04-functions-processes/) | Organizational capabilities |
-| [Projects](./05-projects/) | 13 active projects |
-| [Governance](./06-governance/) | RABSIC and decision framework |
-| [Partners & Clients](./07-partners-clients/) | External relationships |
-| [Teams](./08-teams/) | 6 departments, 23 positions |
-| [SOPs](./sops/) | Standard Operating Procedures |
+| [About](./00-about/) | Vision, mission, and company overview |
+| [Strategy](./01-strategy/) | Goals, KPIs, and strategic initiatives |
+| [Organization](./02-organization/) | Organizational structure and teams |
+| [Operations](./03-operations/) | Processes, value streams, and operational functions |
+| [Governance](./04-governance/) | RABSIC framework, decisions, and policies |
+| [Projects](./05-projects/) | Project tracking and management |
+| [Partners & Clients](./06-partners/) | External relationships and partnerships |
+| [Knowledge Base](./07-knowledge/) | Concepts, frameworks, and terminology |
+| [Archive](./99-archive/) | Legacy and deprecated content |
+
+## Recently Updated
+
+- [costume-order-to-delivery](./03-operations/value-streams/costume-order-to-delivery.md) - 2026-02-02
+- [index](./03-operations/value-streams/index.md) - 2026-02-02
+- [index](./07-knowledge/concepts/index.md) - 2026-02-02
+- [2000아카이브스-웰컴-키트-만들기](./05-projects/active/2000아카이브스-웰컴-키트-만들기.md) - 2026-02-02
+- [24fw-촬영](./05-projects/active/24fw-촬영.md) - 2026-02-02
+- [jaded-pop-up-보도자료](./05-projects/active/jaded-pop-up-보도자료.md) - 2026-02-02
+- [planning-zvzo-이번주-크리에이터-라인업-확정-마감-1-31](./05-projects/active/planning-zvzo-이번주-크리에이터-라인업-확정-마감-1-31.md) - 2026-02-02
+- [현장실습지원센터](./05-projects/active/현장실습지원센터.md) - 2026-02-02
+- [외주-분리-modular-outsourcing](./01-strategy/strategies/외주-분리-modular-outsourcing.md) - 2026-02-02
+- [자동화-우선-automation-first](./01-strategy/strategies/자동화-우선-automation-first.md) - 2026-02-02
 
 ---
 
-*This wiki is auto-generated from the knowledge graph. Do not edit directly.*
+*This wiki is auto-generated from the knowledge graph. For updates, see the [Knowledge Graph documentation](./07-knowledge/).*

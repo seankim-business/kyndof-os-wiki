@@ -1,0 +1,51 @@
+---
+title:  XG 제작건 1차 피팅
+layout: default
+last_modified_date: 2026-02-02
+---
+
+#  XG 제작건 1차 피팅
+
+**Status:** 5_Done
+
+## Details
+
+| Field | Value |
+|-------|-------|
+| Created Time | 2024-08-27T07:51:00.000Z |
+| Last Edited Time | 2024-10-02T05:39:00.000Z |
+| Business Day Since Assigned | 523 |
+| Depth Sum | 0 |
+| Business Day Since Created | 523 |
+| Is Request | false |
+| Output |  |
+| Event Milestone | true |
+| Stop Bot C) | false |
+| Stop Bot I) | false |
+| Stop Bot A) | false |
+| Depth | 0 |
+| Total Eisen Score | -487 |
+| Input |  |
+| Due | 2024-08-28 |
+| Stop Bot R) | false |
+| Priority | 3 |
+| Discussion Status | Discussion |
+| Stop Bot S) | false |
+| Assigned Time | 2024-08-27T16:52:00.000+09:00 |
+| D O N E? | true |
+| Time Spent Min) | 10 |
+| Maintenance Score | 1 |
+| Sub Task Date Range | 2024-08-27T16:51:00.000+09:00 |
+| Blocking Eisen Score | 0 |
+| Eisen Score | -487 |
+| Business Days Until Due | -523 |
+| Is Process | false |
+| Success Rate | 1 |
+| Start Date | 2024-08-27T16:51:00.000+09:00 |
+| Date Completed | 2024-10-02T14:39:00.000+09:00 |
+| Stop Bot B) | false |
+| Estimates H) | 1 |
+
+---
+*Source: databases/tasks.json*
+*Last Updated: 2026-02-02*

@@ -1,38 +1,109 @@
 # Kyndof Wiki
 
-내부 직원용 회사 위키입니다. GitHub Pages로 자동 배포됩니다.
+Internal employee wiki hosted via GitHub Pages.
 
-## 구조
+## Deployment
+
+This wiki is automatically deployed to GitHub Pages when changes are pushed to the main branch.
+
+**Live URL:** https://seankim-business.github.io/kyndof-os/wiki/
+
+## Setup GitHub Pages
+
+1. Go to repository Settings → Pages
+2. Set **Source** to "GitHub Actions"
+3. The workflow will automatically build and deploy on push
+
+## Local Development
+
+### Prerequisites
+
+- Ruby 3.1+
+- Bundler
+
+### Install Dependencies
+
+```bash
+cd wiki/
+bundle install
+```
+
+### Run Local Server
+
+```bash
+bundle exec jekyll serve --baseurl /kyndof-os/wiki
+```
+
+Visit: http://localhost:4000/kyndof-os/wiki/
+
+### Build Static Site
+
+```bash
+bundle exec jekyll build --baseurl /kyndof-os/wiki
+```
+
+Output: `_site/`
+
+## File Structure
 
 ```
 wiki/
-├── index.md                    # 메인 페이지
-├── 00-vision-mission/          # 비전/미션
-├── 01-goals-strategy/          # 목표/전략
-├── 02-business-model/          # 비즈니스 모델
-├── 03-value-streams/           # 가치 흐름
-├── 04-functions-processes/     # 기능/프로세스
-├── 05-projects/                # 프로젝트
-├── 06-governance/              # 거버넌스
-├── 07-partners-clients/        # 파트너/고객
-├── 08-teams/                   # 팀
-└── 99-archive/                 # 아카이브
+├── _config.yml              # Jekyll configuration
+├── Gemfile                  # Ruby dependencies
+├── index.md                 # Home page
+├── start-here/              # Onboarding content
+├── our-teams/               # Team structure
+├── how-we-work/             # Processes and SOPs
+├── what-we-make/            # Products and projects
+├── people/                  # Team directory
+├── clients-partners/        # External relationships
+├── reference/               # Glossary and resources
+└── .github/workflows/pages.yml  # Auto-deployment workflow
 ```
 
-## 사용법
+## Writing Guidelines
 
-1. 마크다운 파일 편집
-2. `git push`
-3. GitHub Pages가 자동으로 빌드 및 배포
+See [CLAUDE.md](./CLAUDE.md) for comprehensive writing and structure guidelines.
 
-## 로컬 미리보기
+Key principles:
+- Human-first content (not metadata-first)
+- Deep hierarchy over wide sprawl
+- Position > Person (roles, not individual names)
+- Organic connections (navigation links)
+- Onboarding-centric structure
+
+## Content Updates
+
+All wiki changes should be made via pull requests to ensure quality and consistency.
+
+## Theme
+
+Using the default `minima` theme for simplicity. Can be customized later if needed.
+
+## Troubleshooting
+
+### Build Failures
+
+Check the Actions tab for detailed error logs.
+
+Common issues:
+- Missing frontmatter in markdown files
+- Broken internal links
+- Invalid YAML in _config.yml
+
+### Local Server Won't Start
 
 ```bash
-# Jekyll 설치 필요
-bundle exec jekyll serve
+# Clean build artifacts
+rm -rf _site .jekyll-cache
+
+# Reinstall dependencies
+bundle install
+
+# Try again
+bundle exec jekyll serve --baseurl /kyndof-os/wiki
 ```
 
-## 관련 레포
+## Questions?
 
-- **runtime**: 에이전트/서비스 코드
-- **world-model**: 데이터 (Notion 싱크, knowledge graph)
+Contact the Orchestrator role or check the [wiki philosophy guide](./CLAUDE.md).

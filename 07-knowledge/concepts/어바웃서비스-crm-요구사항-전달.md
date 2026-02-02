@@ -1,0 +1,13 @@
+---
+title: [→어바웃서비스] CRM 요구사항 전달
+layout: default
+last_modified_date: 2026-02-02
+---
+
+# [→어바웃서비스] CRM 요구사항 전달
+
+**Type:** Projects
+**Status:** active
+
+---
+*Last Updated: 2026-02-02*
