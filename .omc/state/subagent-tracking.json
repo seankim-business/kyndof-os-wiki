@@ -152,10 +152,19 @@
       "status": "failed",
       "completed_at": "2026-02-03T01:02:13.354Z",
       "duration_ms": 679002
+    },
+    {
+      "agent_id": "adc59d8",
+      "agent_type": "oh-my-claudecode:explore",
+      "started_at": "2026-02-03T01:03:06.214Z",
+      "parent_mode": "ultrawork",
+      "status": "failed",
+      "completed_at": "2026-02-03T01:04:03.112Z",
+      "duration_ms": 56898
     }
   ],
-  "total_spawned": 17,
+  "total_spawned": 18,
   "total_completed": 0,
-  "total_failed": 17,
-  "last_updated": "2026-02-03T01:02:34.257Z"
+  "total_failed": 18,
+  "last_updated": "2026-02-03T01:04:03.114Z"
 }
