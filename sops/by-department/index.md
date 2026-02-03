@@ -12,7 +12,7 @@ Standard Operating Procedures organized by owning department. Each department ma
 
 ## Departments
 
-### [2000atelier](/wiki/sops/by-department/2000atelier/)
+### [2000atelier](./2000atelier/)
 Design, pattern making, and production operations for custom costume and garment creation.
 
 **Categories:**
@@ -24,7 +24,7 @@ Design, pattern making, and production operations for custom costume and garment
 
 ---
 
-### [Brand Ops](/wiki/sops/by-department/brand-ops/)
+### [Brand Ops](./brand-ops/)
 Sales, marketing, and customer engagement operations.
 
 **Categories:**
@@ -35,7 +35,7 @@ Sales, marketing, and customer engagement operations.
 
 ---
 
-### [Corp Ops](/wiki/sops/by-department/corp-ops/)
+### [Corp Ops](./corp-ops/)
 Human resources, finance, and administrative operations.
 
 **Categories:**
@@ -52,7 +52,7 @@ Human resources, finance, and administrative operations.
 If you know which team owns a process, navigate directly to that department's category.
 
 **By Process:**
-If you need an end-to-end workflow that spans departments, use [By Process](/wiki/sops/by-process/) navigation instead.
+If you need an end-to-end workflow that spans departments, use [By Process](../by-process/) navigation instead.
 
 **Search:**
 Use the search bar above to find SOPs by keyword (e.g., "cutting", "invoice", "hire").

@@ -306,11 +306,11 @@ Document ALL changes in Revision History section.
 
 ## Resources
 
-- **SOP Template:** `/wiki/sops/_template.md`
+- **SOP Template:** `../_template.md`
 - **Example SOPs:**
-  - [SOP-001: Design Brief Intake](/wiki/sops/by-department/2000atelier/design/sop-001-design-brief-intake.html) (comprehensive example)
-  - [SOP-020: Cutting Standards](/wiki/sops/by-department/2000atelier/production/sop-020-cutting-standards.html) (technical process example)
-  - [SOP-100: Client Inquiry](/wiki/sops/by-department/brand-ops/sales/sop-100-client-inquiry.html) (customer-facing example)
+  - [SOP-001: Design Brief Intake](../by-department/2000atelier/design/sop-001-design-brief-intake/) (comprehensive example)
+  - [SOP-020: Cutting Standards](../by-department/2000atelier/production/sop-020-cutting-standards/) (technical process example)
+  - [SOP-100: Client Inquiry](../by-department/brand-ops/sales/sop-100-client-inquiry/) (customer-facing example)
 
 - **Questions:** Contact Operations Manager
 

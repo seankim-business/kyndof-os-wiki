@@ -16,7 +16,7 @@ Some business processes involve multiple teams working sequentially or in parall
 
 ## Available Process Flows
 
-### [Order to Delivery](/wiki/sops/by-process/order-to-delivery/)
+### [Order to Delivery](./order-to-delivery/)
 Complete customer fulfillment process from initial inquiry through final delivery.
 
 **Departments Involved:** Brand Ops (Sales) → 2000atelier (Design, Pattern, Production)
@@ -34,7 +34,7 @@ Complete customer fulfillment process from initial inquiry through final deliver
 
 ---
 
-### [Hiring](/wiki/sops/by-process/hiring/)
+### [Hiring](./hiring/)
 Recruitment and onboarding process from job posting through employee's first 90 days.
 
 **Departments Involved:** Corp Ops (HR) → Hiring Manager → HR
@@ -52,7 +52,7 @@ Recruitment and onboarding process from job posting through employee's first 90 
 
 ---
 
-### [Content Creation](/wiki/sops/by-process/content-creation/)
+### [Content Creation](./content-creation/)
 Content development process from concept through publication and promotion.
 
 **Departments Involved:** Brand Ops (Marketing) → 2000atelier (Design for photoshoots) → Marketing

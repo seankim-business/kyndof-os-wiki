@@ -1,40 +1,45 @@
 ---
 title: Kyndof Wiki
 layout: home
-nav_order: 1
 ---
 
-# Kyndof Wiki
+# 킨도프 위키에 오신 걸 환영합니다
 
-> Auto-generated from Knowledge Graph | Last updated: 2026-02-02
-
-## Quick Stats
-
-| Metric | Count |
-|--------|-------|
-| Goals | 31 |
-| Projects | 177 |
-| Active Projects | 13 |
-| Departments | 6 |
-| Positions | 23 |
-| People (extracted) | 254 |
-| Companies (extracted) | 117 |
-
-## Navigation
-
-| Section | Description |
-|---------|-------------|
-| [Vision & Mission](./00-vision-mission/) | Our purpose and direction |
-| [Goals & Strategy](./01-goals-strategy/) | 31 goals and strategies |
-| [Business Model](./02-business-model/) | How we create value |
-| [Value Streams](./03-value-streams/) | End-to-end flows |
-| [Functions](./04-functions-processes/) | Organizational capabilities |
-| [Projects](./05-projects/) | 13 active projects |
-| [Governance](./06-governance/) | RABSIC and decision framework |
-| [Partners & Clients](./07-partners-clients/) | External relationships |
-| [Teams](./08-teams/) | 6 departments, 23 positions |
-| [SOPs](./sops/) | Standard Operating Procedures |
+여기는 킨도프가 어떻게 일하고, 무엇을 만들고, 누구인지를 알 수 있는 곳입니다.
 
 ---
 
-*This wiki is auto-generated from the knowledge graph. Do not edit directly.*
+## 처음 오셨나요?
+
+**[여기서 시작하세요 →](./start-here/)**
+
+오리엔테이션, 팀 소개, 도구 설정까지 모두 여기 있습니다. 첫 주라면 [Day 1](./start-here/your-first-week/day-1/)부터 시작하세요.
+
+---
+
+## 필요한 것 찾기
+
+### [우리가 어떻게 일하는지](./how-we-work/)
+의사결정 (RABSIC), 표준 프로세스, 협업 방식을 다룹니다.
+
+### [우리 팀](./our-teams/)
+팀 구조, 역할, 책임을 확인하세요.
+
+### [레퍼런스](./reference/)
+용어집, 정책, 스타일 가이드가 있습니다.
+
+---
+
+## 핵심 원칙
+
+킨도프를 정의하는 세 가지:
+
+**Position Over Person** — 사람이 아니라 역할로 조직합니다. 사람은 바뀌어도 역할은 유지됩니다.
+
+**System Over Individual** — 개인의 영웅심보다 시스템을 신뢰합니다. 시스템을 따르세요.
+
+**Sisyphus Mode** — 검증 없이 완료라고 말하지 마세요. "될 것 같다"가 아니라 "확인했다"만.
+
+---
+
+*질문이 있으면 팀 리드에게 물어보세요.*

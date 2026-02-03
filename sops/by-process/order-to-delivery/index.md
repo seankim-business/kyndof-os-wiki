@@ -53,7 +53,7 @@ BRAND OPS (SALES)          2000ATELIER (DESIGN)         2000ATELIER (PATTERN)   
 ### Phase 1: Sales (Brand Ops)
 | Step | SOP | Owner | Typical Duration |
 |------|-----|-------|------------------|
-| Inquiry Response | [SOP-100](/wiki/sops/by-department/brand-ops/sales/sop-100-client-inquiry.html) | Sales Rep | 0-4 hours |
+| Inquiry Response | [SOP-100](../../by-department/brand-ops/sales/sop-100-client-inquiry/) | Sales Rep | 0-4 hours |
 | Quote Preparation | SOP-101 | Sales Rep | 2-3 business days |
 | Order Confirmation | SOP-102 | Sales Rep | 1-2 business days |
 
@@ -64,7 +64,7 @@ BRAND OPS (SALES)          2000ATELIER (DESIGN)         2000ATELIER (PATTERN)   
 ### Phase 2: Design (2000atelier)
 | Step | SOP | Owner | Typical Duration |
 |------|-----|-------|------------------|
-| Design Brief Intake | [SOP-001](/wiki/sops/by-department/2000atelier/design/sop-001-design-brief-intake.html) | Design Coordinator | 3-5 business days |
+| Design Brief Intake | [SOP-001](../../by-department/2000atelier/design/sop-001-design-brief-intake/) | Design Coordinator | 3-5 business days |
 | Concept Development | SOP-002 | Lead Designer | 5-7 business days |
 | Concept Presentation | SOP-002 | Lead Designer | 1 business day |
 | Revisions (if needed) | SOP-003 | Lead Designer | 2-3 business days per round |
@@ -87,7 +87,7 @@ BRAND OPS (SALES)          2000ATELIER (DESIGN)         2000ATELIER (PATTERN)   
 ### Phase 4: Production (2000atelier)
 | Step | SOP | Owner | Typical Duration |
 |------|-----|-------|------------------|
-| Fabric Cutting | [SOP-020](/wiki/sops/by-department/2000atelier/production/sop-020-cutting-standards.html) | Cutter | 0.5-1 day |
+| Fabric Cutting | [SOP-020](../../by-department/2000atelier/production/sop-020-cutting-standards/) | Cutter | 0.5-1 day |
 | Sewing & Assembly | SOP-021 | Sewing Team | 2-5 business days |
 | Finishing | SOP-022 | Finisher | 1-2 business days |
 | Quality Inspection | SOP-023 | QA Inspector | 0.5 day |
@@ -122,7 +122,7 @@ BRAND OPS (SALES)          2000ATELIER (DESIGN)         2000ATELIER (PATTERN)   
 - Unrealistic timeline expectations set by Sales
 - Budget vs. scope mismatch
 
-**Mitigation:** Sales uses [SOP-100](/wiki/sops/by-department/brand-ops/sales/sop-100-client-inquiry.html) qualification process thoroughly
+**Mitigation:** Sales uses [SOP-100](../../by-department/brand-ops/sales/sop-100-client-inquiry/) qualification process thoroughly
 
 ---
 
@@ -142,7 +142,7 @@ BRAND OPS (SALES)          2000ATELIER (DESIGN)         2000ATELIER (PATTERN)   
 - Missing measurements or size information
 - Material availability not confirmed
 
-**Mitigation:** Design brief ([SOP-001](/wiki/sops/by-department/2000atelier/design/sop-001-design-brief-intake.html)) includes complete technical specifications
+**Mitigation:** Design brief ([SOP-001](../../by-department/2000atelier/design/sop-001-design-brief-intake/)) includes complete technical specifications
 
 ---
 

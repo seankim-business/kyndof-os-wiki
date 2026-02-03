@@ -16,18 +16,18 @@ Brand Ops drives revenue growth and brand awareness through systematic client ac
 
 ## Categories
 
-### [Sales](/wiki/sops/by-department/brand-ops/sales/)
+### [Sales](./sales/)
 Client acquisition, quoting, and order management.
 
 | SOP ID | Title | Status |
 |--------|-------|--------|
-| [SOP-100](/wiki/sops/by-department/brand-ops/sales/sop-100-client-inquiry.html) | Client Inquiry Response | Active |
+| [SOP-100](./sales/sop-100-client-inquiry/) | Client Inquiry Response | Active |
 | SOP-101 | Quote Preparation | Draft |
 | SOP-102 | Order Confirmation | Draft |
 
 ---
 
-### [Marketing](/wiki/sops/by-department/brand-ops/marketing/)
+### [Marketing](./marketing/)
 Content creation, social media, and campaign management.
 
 | SOP ID | Title | Status |
@@ -41,10 +41,10 @@ Content creation, social media, and campaign management.
 ## Key Process Flows
 
 ### Sales Workflow
-1. **Inquiry:** [SOP-100](/wiki/sops/by-department/brand-ops/sales/sop-100-client-inquiry.html) - Client Inquiry Response
+1. **Inquiry:** [SOP-100](./sales/sop-100-client-inquiry/) - Client Inquiry Response
 2. **Quote:** SOP-101 - Quote Preparation
 3. **Contract:** SOP-102 - Order Confirmation
-4. **Handoff:** [SOP-001](/wiki/sops/by-department/2000atelier/design/sop-001-design-brief-intake.html) - Design Brief Intake (2000atelier)
+4. **Handoff:** [SOP-001](../../2000atelier/design/sop-001-design-brief-intake/) - Design Brief Intake (2000atelier)
 
 ### Marketing Workflow
 1. **Plan:** SOP-110 - Content Creation

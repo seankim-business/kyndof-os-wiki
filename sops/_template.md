@@ -234,5 +234,5 @@ status: "Draft"
 ---
 
 **Next Scheduled Review**: [Date]
-**Document Location**: `/wiki/sops/[category]/[filename].md`
+**Document Location**: `sops/[category]/[filename].md`
 **Master Copy**: GitHub repository (source of truth)

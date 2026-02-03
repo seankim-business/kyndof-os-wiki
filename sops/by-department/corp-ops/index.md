@@ -16,7 +16,7 @@ Corp Ops ensures organizational infrastructure operates smoothly through systema
 
 ## Categories
 
-### [HR](/wiki/sops/by-department/corp-ops/hr/)
+### [HR](./hr/)
 Recruiting, hiring, onboarding, and performance management.
 
 | SOP ID | Title | Status |
@@ -28,7 +28,7 @@ Recruiting, hiring, onboarding, and performance management.
 
 ---
 
-### [Finance](/wiki/sops/by-department/corp-ops/finance/)
+### [Finance](./finance/)
 Invoicing, expense processing, and monthly financial closing.
 
 | SOP ID | Title | Status |

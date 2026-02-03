@@ -135,7 +135,7 @@ If a category range fills (all 10 numbers used), expand to next available range 
 
 The SOP Registry is the master list of all assigned SOP IDs.
 
-**Location:** `/wiki/sops/registry.md` (updated quarterly)
+**Location:** `sops/registry.md` (updated quarterly)
 
 **Contents:**
 - SOP ID

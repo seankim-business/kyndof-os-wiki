@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-02-03T00:03:05.257Z",
+  "trigger": "auto",
+  "active_modes": {
+    "ultrawork": {
+      "original_prompt": "WiKi는 회사 일반적인 위키처럼 훨씬 더 하단으로 들어갈 수 잇도록해야하고, 훨씬더 유동적이어야함 (에이전트가 자율적으로 판단해서 계속 내려갈 수 있도록. 특히 value stream / process / sop 관점에서는 거의 무한히 안으로 들어갈 수 있음. 지금 문제는 굉장히 낮은 depth를 유지하고 적은 문서만 유지하려고하는게 문제임. ralph ulw"
+    }
+  },
+  "todo_summary": {
+    "pending": 0,
+    "in_progress": 0,
+    "completed": 0
+  },
+  "wisdom_exported": false
+}

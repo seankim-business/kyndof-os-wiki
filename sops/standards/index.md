@@ -12,7 +12,7 @@ Documentation and guidelines for creating, maintaining, and reviewing SOPs.
 
 ## Available Standards
 
-### [SOP Writing Guide](/wiki/sops/standards/sop-writing-guide.html)
+### [SOP Writing Guide](./sop-writing-guide/)
 Comprehensive guide to writing high-quality, actionable SOPs. Covers structure, style, testing, and maintenance.
 
 **Use this when:**
@@ -78,7 +78,7 @@ Annual and triggered review requirements.
 All SOPs must meet these minimum quality criteria:
 
 ### Structure
-- [ ] All required sections present (see [SOP Writing Guide](/wiki/sops/standards/sop-writing-guide.html))
+- [ ] All required sections present (see [SOP Writing Guide](./sop-writing-guide/))
 - [ ] RABSIC matrix complete with exactly ONE Accountable
 - [ ] Step-by-step procedure with objective action steps
 - [ ] Quality checkpoints with pass/fail criteria
@@ -96,8 +96,8 @@ All SOPs must meet these minimum quality criteria:
 
 ## Resources
 
-- **Template:** [SOP Template](/wiki/sops/_template.html)
-- **Examples:** See [By Department](/wiki/sops/by-department/) for reference SOPs
+- **Template:** [SOP Template](../_template/)
+- **Examples:** See [By Department](../by-department/) for reference SOPs
 - **Support:** Contact Operations Manager for SOP creation assistance
 
 ---

@@ -14,7 +14,7 @@ Standard Operating Procedures for garment fabrication, assembly, and quality ass
 
 | SOP ID | Title | Version | Last Updated |
 |--------|-------|---------|--------------|
-| [SOP-020](/wiki/sops/by-department/2000atelier/production/sop-020-cutting-standards.html) | Cutting Standards | 1.0 | 2026-02-02 |
+| [SOP-020](./sop-020-cutting-standards/) | Cutting Standards | 1.0 | 2026-02-02 |
 | SOP-021 | Sewing Quality Standards | Draft | TBD |
 | SOP-022 | Finishing Checklist | Draft | TBD |
 | SOP-023 | Quality Inspection | Draft | TBD |
@@ -32,7 +32,7 @@ Pattern Received → [SOP-020] Cutting → [SOP-021] Sewing →
 ## Key Roles
 
 - **Production Manager:** Owns production workflow, resource allocation, quality metrics
-- **Cutter:** Executes fabric cutting per [SOP-020](/wiki/sops/by-department/2000atelier/production/sop-020-cutting-standards.html)
+- **Cutter:** Executes fabric cutting per [SOP-020](./sop-020-cutting-standards/)
 - **Sewing Team Lead:** Manages sewing team, quality standards enforcement
 - **Finisher:** Executes finishing procedures (hems, trim, buttons, pressing)
 - **QA Inspector:** Performs final quality inspection before delivery

@@ -16,54 +16,54 @@ SOPs for design, pattern making, and production operations at 2000atelier, Kyndo
 
 ## Categories
 
-### [Design](/wiki/sops/by-department/2000atelier/design/)
+### [Design](./design/)
 Creative development from concept through client approval.
 
 | SOP ID | Title | Status |
 |--------|-------|--------|
-| [SOP-001](/wiki/sops/by-department/2000atelier/design/sop-001-design-brief-intake.html) | Design Brief Intake | Active |
-| [SOP-002](/wiki/sops/by-department/2000atelier/design/sop-002-concept-presentation.html) | Concept Presentation | Active |
-| [SOP-003](/wiki/sops/by-department/2000atelier/design/sop-003-design-revision.html) | Design Revision Process | Active |
+| [SOP-001](./design/sop-001-design-brief-intake/) | Design Brief Intake | Active |
+| [SOP-002](./design/sop-002-concept-presentation/) | Concept Presentation | Active |
+| [SOP-003](./design/sop-003-design-revision/) | Design Revision Process | Active |
 
 ---
 
-### [Pattern](/wiki/sops/by-department/2000atelier/pattern/)
+### [Pattern](./pattern/)
 Technical pattern development, grading, and fitting.
 
 | SOP ID | Title | Status |
 |--------|-------|--------|
-| [SOP-010](/wiki/sops/by-department/2000atelier/pattern/sop-010-measurement-collection.html) | Measurement Collection | Active |
-| [SOP-011](/wiki/sops/by-department/2000atelier/pattern/sop-011-pattern-creation.html) | Pattern Creation | Active |
-| [SOP-012](/wiki/sops/by-department/2000atelier/pattern/sop-012-pattern-grading.html) | Pattern Grading | Active |
+| [SOP-010](./pattern/sop-010-measurement-collection/) | Measurement Collection | Active |
+| [SOP-011](./pattern/sop-011-pattern-creation/) | Pattern Creation | Active |
+| [SOP-012](./pattern/sop-012-pattern-grading/) | Pattern Grading | Active |
 
 ---
 
-### [Production](/wiki/sops/by-department/2000atelier/production/)
+### [Production](./production/)
 Fabrication, assembly, finishing, and quality assurance.
 
 | SOP ID | Title | Status |
 |--------|-------|--------|
-| [SOP-020](/wiki/sops/by-department/2000atelier/production/sop-020-cutting-standards.html) | Cutting Standards | Active |
-| [SOP-021](/wiki/sops/by-department/2000atelier/production/sop-021-sewing-quality.html) | Sewing Quality Standards | Active |
-| [SOP-022](/wiki/sops/by-department/2000atelier/production/sop-022-finishing-checklist.html) | Finishing Checklist | Active |
-| [SOP-023](/wiki/sops/by-department/2000atelier/production/sop-023-quality-inspection.html) | Quality Inspection | Active |
+| [SOP-020](./production/sop-020-cutting-standards/) | Cutting Standards | Active |
+| [SOP-021](./production/sop-021-sewing-quality/) | Sewing Quality Standards | Active |
+| [SOP-022](./production/sop-022-finishing-checklist/) | Finishing Checklist | Active |
+| [SOP-023](./production/sop-023-quality-inspection/) | Quality Inspection | Active |
 
 ---
 
 ## Key Process Flows
 
 ### Client Project Workflow
-1. **Intake:** [SOP-001](/wiki/sops/by-department/2000atelier/design/sop-001-design-brief-intake.html) - Design Brief Intake
-2. **Concept:** [SOP-002](/wiki/sops/by-department/2000atelier/design/sop-002-concept-presentation.html) - Concept Presentation
-3. **Pattern:** [SOP-011](/wiki/sops/by-department/2000atelier/pattern/sop-011-pattern-creation.html) - Pattern Creation
-4. **Cutting:** [SOP-020](/wiki/sops/by-department/2000atelier/production/sop-020-cutting-standards.html) - Cutting Standards
-5. **Sewing:** [SOP-021](/wiki/sops/by-department/2000atelier/production/sop-021-sewing-quality.html) - Sewing Quality
-6. **Finishing:** [SOP-022](/wiki/sops/by-department/2000atelier/production/sop-022-finishing-checklist.html) - Finishing Checklist
-7. **QA:** [SOP-023](/wiki/sops/by-department/2000atelier/production/sop-023-quality-inspection.html) - Quality Inspection
+1. **Intake:** [SOP-001](./design/sop-001-design-brief-intake/) - Design Brief Intake
+2. **Concept:** [SOP-002](./design/sop-002-concept-presentation/) - Concept Presentation
+3. **Pattern:** [SOP-011](./pattern/sop-011-pattern-creation/) - Pattern Creation
+4. **Cutting:** [SOP-020](./production/sop-020-cutting-standards/) - Cutting Standards
+5. **Sewing:** [SOP-021](./production/sop-021-sewing-quality/) - Sewing Quality
+6. **Finishing:** [SOP-022](./production/sop-022-finishing-checklist/) - Finishing Checklist
+7. **QA:** [SOP-023](./production/sop-023-quality-inspection/) - Quality Inspection
 
 ### Revision Workflow
-1. **Request:** [SOP-003](/wiki/sops/by-department/2000atelier/design/sop-003-design-revision.html) - Design Revision
-2. **Pattern Adjustment:** [SOP-011](/wiki/sops/by-department/2000atelier/pattern/sop-011-pattern-creation.html) - Pattern Creation (modification)
+1. **Request:** [SOP-003](./design/sop-003-design-revision/) - Design Revision
+2. **Pattern Adjustment:** [SOP-011](./pattern/sop-011-pattern-creation/) - Pattern Creation (modification)
 3. **Re-Production:** Return to cutting/sewing/finishing as needed
 
 ## Department Contacts

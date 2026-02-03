@@ -14,7 +14,7 @@ Standard Operating Procedures for client acquisition and order management.
 
 | SOP ID | Title | Version | Last Updated |
 |--------|-------|---------|--------------|
-| [SOP-100](/wiki/sops/by-department/brand-ops/sales/sop-100-client-inquiry.html) | Client Inquiry Response | 1.0 | 2026-02-02 |
+| [SOP-100](./sop-100-client-inquiry/) | Client Inquiry Response | 1.0 | 2026-02-02 |
 | SOP-101 | Quote Preparation | Draft | TBD |
 | SOP-102 | Order Confirmation | Draft | TBD |
 

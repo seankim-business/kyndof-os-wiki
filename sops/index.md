@@ -57,15 +57,15 @@ Navigate by end-to-end workflows that span multiple departments:
 
 ### Recently Updated
 
-Check the [changelog](/wiki/sops/standards/review-process.html) for recent SOP revisions.
+Check the [changelog](./standards/review-process/) for recent SOP revisions.
 
 ## Creating New SOPs
 
-Use the [SOP Template](/wiki/sops/_template.html) when creating new procedures. All SOPs must:
+Use the [SOP Template](./_template/) when creating new procedures. All SOPs must:
 - Include complete RABSIC responsibility matrix
 - Define clear quality checkpoints
 - Be reviewed annually minimum
-- Follow the [SOP Writing Guide](/wiki/sops/standards/sop-writing-guide.html)
+- Follow the [SOP Writing Guide](./standards/sop-writing-guide/)
 
 ## SOP Lifecycle
 

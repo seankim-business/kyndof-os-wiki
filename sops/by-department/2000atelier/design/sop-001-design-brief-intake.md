@@ -588,9 +588,9 @@ Without this process, design projects suffer from scope creep, missed requiremen
 ## Related Documents
 
 **Referenced SOPs:**
-- [SOP-002: Concept Presentation Process](/wiki/sops/by-department/2000atelier/design/sop-002-concept-presentation.html)
-- [SOP-003: Design Revision Process](/wiki/sops/by-department/2000atelier/design/sop-003-design-revision.html)
-- [SOP-100: Client Inquiry Response](/wiki/sops/by-department/brand-ops/sales/sop-100-client-inquiry.html)
+- [SOP-002: Concept Presentation Process](./sop-002-concept-presentation/)
+- [SOP-003: Design Revision Process](./sop-003-design-revision/)
+- [SOP-100: Client Inquiry Response](../../brand-ops/sales/sop-100-client-inquiry/)
 
 **Templates:**
 - Design Brief Template v2.1 (Google Docs)
@@ -666,5 +666,5 @@ Without this process, design projects suffer from scope creep, missed requiremen
 ---
 
 **Next Scheduled Review**: 2027-02-02
-**Document Location**: `/wiki/sops/by-department/2000atelier/design/sop-001-design-brief-intake.md`
+**Document Location**: `sops/by-department/2000atelier/design/sop-001-design-brief-intake.md`
 **Master Copy**: GitHub repository (source of truth)

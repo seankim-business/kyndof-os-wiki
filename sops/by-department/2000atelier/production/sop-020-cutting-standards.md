@@ -563,9 +563,9 @@ Cutting is the most critical and irreversible step in garment production. Errors
 ## Related Documents
 
 **Referenced SOPs:**
-- [SOP-011: Pattern Creation Process](/wiki/sops/by-department/2000atelier/pattern/sop-011-pattern-creation.html)
-- [SOP-021: Sewing Quality Standards](/wiki/sops/by-department/2000atelier/production/sop-021-sewing-quality.html)
-- [SOP-023: Quality Inspection Checklist](/wiki/sops/by-department/2000atelier/production/sop-023-quality-inspection.html)
+- [SOP-011: Pattern Creation Process](../../pattern/sop-011-pattern-creation/)
+- [SOP-021: Sewing Quality Standards](./sop-021-sewing-quality/)
+- [SOP-023: Quality Inspection Checklist](./sop-023-quality-inspection/)
 
 **Templates:**
 - Cutting Layout Diagram Template
@@ -644,5 +644,5 @@ Cutting is the most critical and irreversible step in garment production. Errors
 ---
 
 **Next Scheduled Review**: 2027-02-02
-**Document Location**: `/wiki/sops/by-department/2000atelier/production/sop-020-cutting-standards.md`
+**Document Location**: `sops/by-department/2000atelier/production/sop-020-cutting-standards.md`
 **Master Copy**: GitHub repository (source of truth)

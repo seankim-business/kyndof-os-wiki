@@ -688,9 +688,9 @@ First contact is critical to client relationships. A 4-hour response time increa
 ## Related Documents
 
 **Referenced SOPs:**
-- [SOP-001: Design Brief Intake](/wiki/sops/by-department/2000atelier/design/sop-001-design-brief-intake.html)
-- [SOP-101: Quote Preparation](/wiki/sops/by-department/brand-ops/sales/sop-101-quote-preparation.html)
-- [SOP-102: Order Confirmation](/wiki/sops/by-department/brand-ops/sales/sop-102-order-confirmation.html)
+- [SOP-001: Design Brief Intake](../../../2000atelier/design/sop-001-design-brief-intake/)
+- [SOP-101: Quote Preparation](./sop-101-quote-preparation/)
+- [SOP-102: Order Confirmation](./sop-102-order-confirmation/)
 
 **Templates:**
 - Inquiry Response Email Templates (A1-A4) - Appendix A
@@ -768,5 +768,5 @@ First contact is critical to client relationships. A 4-hour response time increa
 ---
 
 **Next Scheduled Review**: 2027-02-02
-**Document Location**: `/wiki/sops/by-department/brand-ops/sales/sop-100-client-inquiry.md`
+**Document Location**: `sops/by-department/brand-ops/sales/sop-100-client-inquiry.md`
 **Master Copy**: GitHub repository (source of truth)

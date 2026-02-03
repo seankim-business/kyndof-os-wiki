@@ -197,10 +197,10 @@ Every SOP includes:
 ## Usage Guidelines
 
 ### For SOP Authors
-1. Start with `/wiki/sops/_template.md`
-2. Follow `/wiki/sops/standards/sop-writing-guide.md`
-3. Request SOP ID from category owner per `/wiki/sops/standards/numbering-convention.md`
-4. Submit for review per `/wiki/sops/standards/review-process.md`
+1. Start with `_template.md`
+2. Follow `standards/sop-writing-guide.md`
+3. Request SOP ID from category owner per `standards/numbering-convention.md`
+4. Submit for review per `standards/review-process.md`
 
 ### For SOP Users
 1. Navigate via department or process view

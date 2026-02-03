@@ -14,7 +14,7 @@ Standard Operating Procedures for the design process at 2000atelier.
 
 | SOP ID | Title | Version | Last Updated |
 |--------|-------|---------|--------------|
-| [SOP-001](/wiki/sops/by-department/2000atelier/design/sop-001-design-brief-intake.html) | Design Brief Intake | 1.0 | 2026-02-02 |
+| [SOP-001](./sop-001-design-brief-intake/) | Design Brief Intake | 1.0 | 2026-02-02 |
 | SOP-002 | Concept Presentation | Draft | TBD |
 | SOP-003 | Design Revision Process | Draft | TBD |
 
